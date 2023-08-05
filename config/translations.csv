@@ -1,12 +1,27 @@
 keys,en,ru
-START,S T A R T,С Т А Р Т
-CONTINUE,C O N T I N U E,П Р О Д О Л Ж И Т Ь
-SETTINGS,S E T T I N G S,Н А С Т Р О Й К И
+START,START,СТАРТ
+CONTINUE,CONTINUE,ПРОДОЛЖИТЬ
+SETTINGS,SETTINGS,НАСТРОЙКИ
 INFO,INFORMATION,ИНФОРМАЦИЯ
-QUIT,Q U I T,В Ы Х О Д
-MUSIC,Music,Музыка
-SOUNDS,Sounds,Звуки
-FULLSCREEN,Full screen,Полн. экран
-COPYRIGHT,COPYRIGHT,АВТОРСКИЕ ПРАВА
+QUIT,QUIT,ВЫХОД
+VIDEO,VIDEO,ВИДЕО
+AUDIO,AUDIO,АУДИО
+GAMEPLAY,GAME,ИГРА
+CONTROLS,CONTROLS,УПРАВЛЕНИЕ
 HELP,HELP,ПОМОЩЬ
+ABOUT,ABOUT,ОБ ИГРЕ
+COPYRIGHT,COPYRIGHT,АВТОРСКИЕ ПРАВА
+MASTER,"Master","Общая"
+MUSIC,"Music","Музыка"
+SOUNDS,"SFX","Эффекты"
+FULLSCREEN,Full screen,Полный экран
 DEBUG,Debug,Отладка
+MOUSE_INVY,Mouse invert Y,Инвертировать мышь по оси Y
+MOUSE_SENS,Mouse sensitivity,Чувствительность мыши
+ABOUT_HELP,"",""
+ABOUT_GAME,"[b]Defence of Ten[/b]
+(c) G-Shadow
+Made for a PGD Jam #12. Theme: 10 mouse clicks (+ limited color palette)","[b]Защита Десяти[/b]
+(c) G-Shadow
+Сделано для PGD Jam #12. Тема: 10 кликов мыши (+ ограниченная цветовая палитра)"
+ABOUT_COPY,"",""

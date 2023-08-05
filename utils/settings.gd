@@ -12,10 +12,17 @@ class Video:
 var video := Video.new()
 
 class Audio:
-	var enabled		:= true
-	var sfx_vol		:= 1.0
-	var music_vol	:= 1.0
+	var master_enabled	:= true
+	var master_vol		:= 1.0
+	var sfx_enabled		:= true
+	var sfx_vol			:= 1.0
+	var music_enabled	:= true
+	var music_vol		:= 1.0
 var audio := Audio.new()
+
+class Gameplay:
+	var debug		:= false
+var game := Gameplay.new()
 
 class Conrols:
 	var mouse_sensitivity	:= Vector2(0.005, 0.005)

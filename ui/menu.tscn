@@ -1,0 +1,294 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3ap1v0svbc1a"]
+
+[ext_resource type="Script" path="res://ui/menu.gd" id="1_14nyn"]
+
+[node name="Menu" type="HSplitContainer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 256
+dragger_visibility = 2
+script = ExtResource("1_14nyn")
+
+[node name="LeftPanel" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="MainMenu" type="VBoxContainer" parent="LeftPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="ButtonStart" type="Button" parent="LeftPanel/MainMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "START"
+
+[node name="ButtonContinue" type="Button" parent="LeftPanel/MainMenu"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "CONTINUE"
+
+[node name="ButtonSettings" type="Button" parent="LeftPanel/MainMenu"]
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="ButtonInfo" type="Button" parent="LeftPanel/MainMenu"]
+layout_mode = 2
+text = "INFO"
+
+[node name="ButtonQuit" type="Button" parent="LeftPanel/MainMenu"]
+layout_mode = 2
+text = "QUIT"
+
+[node name="RightMiddleSide" type="HSplitContainer" parent="."]
+layout_mode = 2
+split_offset = 256
+
+[node name="MiddlePanel" type="MarginContainer" parent="RightMiddleSide"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 32
+
+[node name="SettingsMenu" type="VBoxContainer" parent="RightMiddleSide/MiddlePanel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="ButtonVideo" type="Button" parent="RightMiddleSide/MiddlePanel/SettingsMenu"]
+layout_mode = 2
+text = "VIDEO"
+
+[node name="ButtonAudio" type="Button" parent="RightMiddleSide/MiddlePanel/SettingsMenu"]
+layout_mode = 2
+text = "AUDIO"
+
+[node name="ButtonGame" type="Button" parent="RightMiddleSide/MiddlePanel/SettingsMenu"]
+layout_mode = 2
+text = "GAMEPLAY"
+
+[node name="ButtonControls" type="Button" parent="RightMiddleSide/MiddlePanel/SettingsMenu"]
+layout_mode = 2
+text = "CONTROLS"
+
+[node name="AboutMenu" type="VBoxContainer" parent="RightMiddleSide/MiddlePanel"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="ButtonHelp" type="Button" parent="RightMiddleSide/MiddlePanel/AboutMenu"]
+layout_mode = 2
+text = "HELP"
+
+[node name="ButtonAbout" type="Button" parent="RightMiddleSide/MiddlePanel/AboutMenu"]
+layout_mode = 2
+text = "ABOUT"
+
+[node name="ButtonCopyright" type="Button" parent="RightMiddleSide/MiddlePanel/AboutMenu"]
+layout_mode = 2
+text = "COPYRIGHT"
+
+[node name="RightSide" type="MarginContainer" parent="RightMiddleSide"]
+layout_mode = 2
+theme_override_constants/margin_right = 32
+
+[node name="SettingsVideo" type="VBoxContainer" parent="RightMiddleSide/RightSide"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="FullScreen" type="CheckBox" parent="RightMiddleSide/RightSide/SettingsVideo"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "FULLSCREEN"
+
+[node name="SettingsAudio" type="VBoxContainer" parent="RightMiddleSide/RightSide"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="MasterGroup" type="HBoxContainer" parent="RightMiddleSide/RightSide/SettingsAudio"]
+layout_mode = 2
+
+[node name="MasterEnable" type="CheckBox" parent="RightMiddleSide/RightSide/SettingsAudio/MasterGroup"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "MASTER"
+
+[node name="VolMaster" type="HSlider" parent="RightMiddleSide/RightSide/SettingsAudio/MasterGroup"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="SfxGroup" type="HBoxContainer" parent="RightMiddleSide/RightSide/SettingsAudio"]
+layout_mode = 2
+
+[node name="SfxEnable" type="CheckBox" parent="RightMiddleSide/RightSide/SettingsAudio/SfxGroup"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "SOUNDS"
+
+[node name="VolSfx" type="HSlider" parent="RightMiddleSide/RightSide/SettingsAudio/SfxGroup"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="MusicGroup" type="HBoxContainer" parent="RightMiddleSide/RightSide/SettingsAudio"]
+layout_mode = 2
+
+[node name="MusicEnable" type="CheckBox" parent="RightMiddleSide/RightSide/SettingsAudio/MusicGroup"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "MUSIC"
+
+[node name="VolMusic" type="HSlider" parent="RightMiddleSide/RightSide/SettingsAudio/MusicGroup"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="SettingsGame" type="VBoxContainer" parent="RightMiddleSide/RightSide"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Debug" type="CheckBox" parent="RightMiddleSide/RightSide/SettingsGame"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "DEBUG"
+
+[node name="SettingsControls" type="VBoxContainer" parent="RightMiddleSide/RightSide"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="MouseInvY" type="CheckBox" parent="RightMiddleSide/RightSide/SettingsControls"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "MOUSE_INVY"
+
+[node name="MouseSensGroup" type="HBoxContainer" parent="RightMiddleSide/RightSide/SettingsControls"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RightMiddleSide/RightSide/SettingsControls/MouseSensGroup"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "MOUSE_SENS"
+
+[node name="MouseSens" type="HSlider" parent="RightMiddleSide/RightSide/SettingsControls/MouseSensGroup"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 0.001
+max_value = 0.1
+step = 0.001
+value = 0.001
+
+[node name="AboutHelp" type="VBoxContainer" parent="RightMiddleSide/RightSide"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RightMiddleSide/RightSide/AboutHelp"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "ABOUT_HELP"
+fit_content = true
+
+[node name="AboutGame" type="VBoxContainer" parent="RightMiddleSide/RightSide"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RightMiddleSide/RightSide/AboutGame"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "ABOUT_GAME"
+fit_content = true
+
+[node name="AboutCopyright" type="VBoxContainer" parent="RightMiddleSide/RightSide"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RightMiddleSide/RightSide/AboutCopyright"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "ABOUT_COPY"
+fit_content = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="mouse_entered" from="LeftPanel/MainMenu/ButtonStart" to="." method="_play_hover"]
+[connection signal="pressed" from="LeftPanel/MainMenu/ButtonStart" to="." method="_on_button_start_pressed"]
+[connection signal="mouse_entered" from="LeftPanel/MainMenu/ButtonContinue" to="." method="_play_hover"]
+[connection signal="pressed" from="LeftPanel/MainMenu/ButtonContinue" to="." method="_on_button_continue_pressed"]
+[connection signal="mouse_entered" from="LeftPanel/MainMenu/ButtonSettings" to="." method="_play_hover"]
+[connection signal="pressed" from="LeftPanel/MainMenu/ButtonSettings" to="." method="_on_button_settings_pressed"]
+[connection signal="mouse_entered" from="LeftPanel/MainMenu/ButtonInfo" to="." method="_play_hover"]
+[connection signal="pressed" from="LeftPanel/MainMenu/ButtonInfo" to="." method="_on_button_info_pressed"]
+[connection signal="mouse_entered" from="LeftPanel/MainMenu/ButtonQuit" to="." method="_play_hover"]
+[connection signal="pressed" from="LeftPanel/MainMenu/ButtonQuit" to="." method="_on_button_quit_pressed"]
+[connection signal="mouse_entered" from="RightMiddleSide/MiddlePanel/SettingsMenu/ButtonVideo" to="." method="_play_hover"]
+[connection signal="pressed" from="RightMiddleSide/MiddlePanel/SettingsMenu/ButtonVideo" to="." method="_on_button_video_pressed"]
+[connection signal="mouse_entered" from="RightMiddleSide/MiddlePanel/SettingsMenu/ButtonAudio" to="." method="_play_hover"]
+[connection signal="pressed" from="RightMiddleSide/MiddlePanel/SettingsMenu/ButtonAudio" to="." method="_on_button_audio_pressed"]
+[connection signal="mouse_entered" from="RightMiddleSide/MiddlePanel/SettingsMenu/ButtonGame" to="." method="_play_hover"]
+[connection signal="pressed" from="RightMiddleSide/MiddlePanel/SettingsMenu/ButtonGame" to="." method="_on_button_game_pressed"]
+[connection signal="mouse_entered" from="RightMiddleSide/MiddlePanel/SettingsMenu/ButtonControls" to="." method="_play_hover"]
+[connection signal="pressed" from="RightMiddleSide/MiddlePanel/SettingsMenu/ButtonControls" to="." method="_on_button_controls_pressed"]
+[connection signal="mouse_entered" from="RightMiddleSide/MiddlePanel/AboutMenu/ButtonHelp" to="." method="_play_hover"]
+[connection signal="pressed" from="RightMiddleSide/MiddlePanel/AboutMenu/ButtonHelp" to="." method="_on_button_help_pressed"]
+[connection signal="mouse_entered" from="RightMiddleSide/MiddlePanel/AboutMenu/ButtonAbout" to="." method="_play_hover"]
+[connection signal="pressed" from="RightMiddleSide/MiddlePanel/AboutMenu/ButtonAbout" to="." method="_on_button_about_pressed"]
+[connection signal="mouse_entered" from="RightMiddleSide/MiddlePanel/AboutMenu/ButtonCopyright" to="." method="_play_hover"]
+[connection signal="pressed" from="RightMiddleSide/MiddlePanel/AboutMenu/ButtonCopyright" to="." method="_on_button_copyright_pressed"]
+[connection signal="mouse_entered" from="RightMiddleSide/RightSide/SettingsVideo/FullScreen" to="." method="_play_hover"]
+[connection signal="toggled" from="RightMiddleSide/RightSide/SettingsVideo/FullScreen" to="." method="_on_full_screen_toggled"]
+[connection signal="mouse_entered" from="RightMiddleSide/RightSide/SettingsAudio/MasterGroup" to="." method="_play_hover"]
+[connection signal="toggled" from="RightMiddleSide/RightSide/SettingsAudio/MasterGroup/MasterEnable" to="." method="_on_master_enable_toggled"]
+[connection signal="value_changed" from="RightMiddleSide/RightSide/SettingsAudio/MasterGroup/VolMaster" to="." method="_on_vol_master_value_changed"]
+[connection signal="mouse_entered" from="RightMiddleSide/RightSide/SettingsAudio/SfxGroup" to="." method="_play_hover"]
+[connection signal="toggled" from="RightMiddleSide/RightSide/SettingsAudio/SfxGroup/SfxEnable" to="." method="_on_sfx_enable_toggled"]
+[connection signal="value_changed" from="RightMiddleSide/RightSide/SettingsAudio/SfxGroup/VolSfx" to="." method="_on_vol_sfx_value_changed"]
+[connection signal="mouse_entered" from="RightMiddleSide/RightSide/SettingsAudio/MusicGroup" to="." method="_play_hover"]
+[connection signal="toggled" from="RightMiddleSide/RightSide/SettingsAudio/MusicGroup/MusicEnable" to="." method="_on_music_enable_toggled"]
+[connection signal="value_changed" from="RightMiddleSide/RightSide/SettingsAudio/MusicGroup/VolMusic" to="." method="_on_vol_music_value_changed"]
+[connection signal="mouse_entered" from="RightMiddleSide/RightSide/SettingsGame/Debug" to="." method="_play_hover"]
+[connection signal="toggled" from="RightMiddleSide/RightSide/SettingsGame/Debug" to="." method="_on_debug_toggled"]
+[connection signal="mouse_entered" from="RightMiddleSide/RightSide/SettingsControls/MouseInvY" to="." method="_play_hover"]
+[connection signal="toggled" from="RightMiddleSide/RightSide/SettingsControls/MouseInvY" to="." method="_on_mouse_inv_y_toggled"]
+[connection signal="mouse_entered" from="RightMiddleSide/RightSide/SettingsControls/MouseSensGroup" to="." method="_play_hover"]
+[connection signal="drag_ended" from="RightMiddleSide/RightSide/SettingsControls/MouseSensGroup/MouseSens" to="." method="_on_mouse_sens_drag_ended"]
