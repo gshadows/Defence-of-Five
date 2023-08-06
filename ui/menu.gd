@@ -1,6 +1,5 @@
 extends HSplitContainer
 
-signal start
 signal quit
 
 @onready var _sndClick = preload("res://audio/MenuClick - 448080__breviceps__wet-click.wav")
@@ -22,7 +21,12 @@ signal quit
 @onready var _but_start := %ButtonStart
 @onready var _but_cont := %ButtonContinue
 
-@onready var _player := $AudioStreamPlayer
+@onready var _sfx := $MenuSFX
+@onready var _music := $MenuMusic
+
+
+func _ready():
+	show_main()
 
 
 func show_main():
@@ -30,6 +34,7 @@ func show_main():
 	_main.visible = true
 	_but_start.visible = not Game.active
 	_but_cont.visible = Game.active
+	_music.play()
 
 
 func _hide_subs():
@@ -47,25 +52,33 @@ func _hide_subs():
 
 
 func _play_click():
-	_player.stream = _sndClick
-	_player.play()
+	_sfx.stream = _sndClick
+	_sfx.play()
 
 func _play_hover():
-	_player.stream = _sndHover
-	_player.play()
+	_sfx.stream = _sndHover
+	_sfx.play()
 
 
 func _on_button_start_pressed():
-	_play_click()
-	start.emit()
+	_prepare_start()
+	var node = load("res://ui/defence_prepare.tscn").instantiate()
+	add_sibling(node)
 
 func _on_button_continue_pressed():
+	_prepare_start()
+
+func _prepare_start():
+	_music.stop()
 	_play_click()
 	visible = false
-	start.emit()
+	await get_tree().create_timer(0.2).timeout
+	Game.start()
 
 func _on_button_quit_pressed():
+	_music.stop()
 	_play_click()
+	await get_tree().create_timer(0.2).timeout
 	quit.emit()
 
 func _on_button_settings_pressed():

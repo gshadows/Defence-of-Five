@@ -116,7 +116,6 @@ text = "FULLSCREEN"
 
 [node name="SettingsAudio" type="VBoxContainer" parent="RightMiddleSide/RightSide"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
@@ -135,6 +134,8 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+max_value = 2.0
+step = 0.01
 
 [node name="SfxGroup" type="HBoxContainer" parent="RightMiddleSide/RightSide/SettingsAudio"]
 layout_mode = 2
@@ -150,6 +151,8 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+max_value = 2.0
+step = 0.01
 
 [node name="MusicGroup" type="HBoxContainer" parent="RightMiddleSide/RightSide/SettingsAudio"]
 layout_mode = 2
@@ -165,6 +168,8 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+max_value = 2.0
+step = 0.01
 
 [node name="SettingsGame" type="VBoxContainer" parent="RightMiddleSide/RightSide"]
 unique_name_in_owner = true
@@ -210,6 +215,7 @@ value = 0.001
 
 [node name="AboutHelp" type="VBoxContainer" parent="RightMiddleSide/RightSide"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
@@ -249,7 +255,11 @@ bbcode_enabled = true
 text = "ABOUT_COPY"
 fit_content = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MenuSFX" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
 
 [connection signal="mouse_entered" from="LeftPanel/MainMenu/ButtonStart" to="." method="_play_hover"]
 [connection signal="pressed" from="LeftPanel/MainMenu/ButtonStart" to="." method="_on_button_start_pressed"]

@@ -15,11 +15,11 @@ static func save_to_file(obj, file_name:String):
 
 static func load_from_string(obj, json:String):
 	var test_json_conv = JSON.new()
-	if not test_json_conv.parse(json):
-		printerr("Invalid JSON format")
+	var error = test_json_conv.parse(json)
+	if error:
+		printerr("Invalid JSON format: ", error)
 		return
-	#var result = test_json_conv.get_data()
-	var dict = test_json_conv.get_data() #result.result
+	var dict = test_json_conv.get_data()
 	if not dict is Dictionary:
 		printerr("Invalid JSON format: dictionary expected")
 		return

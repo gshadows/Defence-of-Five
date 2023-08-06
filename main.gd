@@ -12,6 +12,7 @@ func _ready():
 	Game.paused.connect(_on_paused)
 	Game.started.connect(_on_started)
 	Game.pause()
+	menu.quit.connect(func(): get_tree().quit(0))
 
 
 func _on_paused():
