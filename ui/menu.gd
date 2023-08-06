@@ -62,7 +62,7 @@ func _play_hover():
 
 func _on_button_start_pressed():
 	_prepare_start()
-	var node = load("res://ui/defence_prepare.tscn").instantiate()
+	var node = load("res://maps/map-01.tscn").instantiate()
 	add_sibling(node)
 
 func _on_button_continue_pressed():

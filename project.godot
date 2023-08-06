@@ -23,6 +23,11 @@ config/icon="res://sprites/icon.svg"
 Settings="*res://utils/settings.gd"
 Game="*res://game.gd"
 
+[filesystem]
+
+import/blender/enabled=false
+import/fbx/enabled=false
+
 [input]
 
 ui_left={
