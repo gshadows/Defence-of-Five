@@ -32,4 +32,4 @@ mono_crash.*.json
 *.~*
 
 # Game settings when saved to current folder.
-config.ini
+settings.json
