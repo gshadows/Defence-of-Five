@@ -2,8 +2,8 @@ extends HSplitContainer
 
 signal quit
 
-@onready var _sndClick = preload("res://audio/MenuClick - 448080__breviceps__wet-click.wav")
-@onready var _sndHover = preload("res://audio/MenuHover - 422971__dkiller2204__sfxkeypickup.wav")
+@onready var _snd_click = preload("res://audio/MenuClick - 448080__breviceps__wet-click.wav")
+@onready var _snd_hover = preload("res://audio/MenuHover - 422971__dkiller2204__sfxkeypickup.wav")
 
 @onready var _main := %MainMenu
 @onready var _settings := %SettingsMenu
@@ -52,11 +52,11 @@ func _hide_subs():
 
 
 func _play_click():
-	_sfx.stream = _sndClick
+	_sfx.stream = _snd_click
 	_sfx.play()
 
 func _play_hover():
-	_sfx.stream = _sndHover
+	_sfx.stream = _snd_hover
 	_sfx.play()
 
 

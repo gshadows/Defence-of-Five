@@ -9,7 +9,7 @@ process_mode = 1
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.567765, -0.738107, 0.364474, 0.0414948, 0.416533, 0.908173, -0.822144, 0.530753, -0.205866, 0, 250, 0)
-light_energy = 2.293
+visible = false
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -18,4 +18,10 @@ environment = ExtResource("1_x6fik")
 [node name="landscape" parent="." instance=ExtResource("1_ke4h4")]
 
 [node name="TopViewPlanner" parent="." instance=ExtResource("3_xldbd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 337.414, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.645, 112.112, -10.8553)
+
+[node name="PlannerSun" type="DirectionalLight3D" parent="TopViewPlanner"]
+transform = Transform3D(-0.232679, -0.40729, -0.883162, 0.0792604, -0.913006, 0.400172, -0.969318, 0.0231118, 0.244719, 15.645, -73.2338, 10.8553)
+light_energy = 6.657
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0

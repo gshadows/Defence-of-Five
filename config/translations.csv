@@ -18,10 +18,20 @@ FULLSCREEN,Full screen,Полный экран
 DEBUG,Debug,Отладка
 MOUSE_INVY,Mouse invert Y,Инвертировать мышь по оси Y
 MOUSE_SENS,Mouse sensitivity,Чувствительность мыши
-ABOUT_HELP,"",""
+ABOUT_HELP,"-","-"
 ABOUT_GAME,"[b]Defence of Ten[/b]
 (c) G-Shadow
 Made for a PGD Jam #12. Theme: 10 mouse clicks (+ limited color palette)","[b]Защита Десяти[/b]
 (c) G-Shadow
 Сделано для PGD Jam #12. Тема: 10 кликов мыши (+ ограниченная цветовая палитра)"
-ABOUT_COPY,"",""
+ABOUT_COPY,"-","-"
+PLAN_TITLE,"Defence System Plan","План Системы Обороны"
+PLAN_SUBTITLE,"You have 10 clicks to place your defence.","У вас есть 10 кликов для размещения обороны"
+WEAPONS,Weapons,Оружие
+TURRET_1,Single Gun,Одиночная Пушка
+EMIGEN,EMI Generator,Э/М Генератор
+RESERVES,Reserves,Резервы
+PLANSTATS,Statistics,Статистика
+CLICKS, Clicks:, Кликов:
+TURR1S, S.Turrets:, Од.Пушек
+EMIS, EMI Gens:, Э/М Ген-ров:

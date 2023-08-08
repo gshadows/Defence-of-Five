@@ -8,10 +8,9 @@ data = PackedVector3Array(-0.9842, 0.3215, 1, -1, 0.3215, 0.9843, -0.9842, 0.315
 
 [node name="landscape" instance=ExtResource("1_yq1kd")]
 
-[node name="Landscape_001" parent="." index="0"]
+[node name="Landscape" parent="." index="0"]
 transform = Transform3D(250, 0, 0, 0, 250, 0, 0, 0, 250, 0, 0, 0)
 material_override = ExtResource("2_3h5e6")
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(250, 0, 0, 0, 250, 0, 0, 0, 250, 0, 0, 0)
