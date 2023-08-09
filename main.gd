@@ -11,6 +11,7 @@ func _ready():
 	#DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	Game.paused.connect(_on_paused)
 	Game.started.connect(_on_started)
+	Game.quit.connect(_on_quit_game)
 	Game.pause()
 	menu.quit.connect(func(): get_tree().quit(0))
 
@@ -21,3 +22,7 @@ func _on_paused():
 
 func _on_started():
 	menu.visible = false
+
+func _on_quit_game():
+	menu.visible = true
+	menu.show_main()

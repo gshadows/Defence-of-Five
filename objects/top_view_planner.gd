@@ -1,11 +1,21 @@
+class_name TopViewPlanner
 extends Node3D
+
+signal quit
+signal start(setup)
 
 @onready var _grid := %GridContainer
 @onready var _but_turr1 := %Turret1
 @onready var _but_emi := %EmiGenerator
+@onready var _but_start := %ButStart
+@onready var _but_quit := %ButQuit
+
 @onready var _clicks_count := %ClicksCount
 @onready var _turr1_count := %Turr1sCount
 @onready var _emi_count := %EmisCount
+@onready var _footer_not_ready := %FooterNotReady
+@onready var _footer_ready := %FooterReady
+@onready var _footer_game_over := %FooterGameOver
 
 @onready var _sfx := $SfxPlayer
 @onready var _snd_select = preload("res://audio/MenuClick - 448080__breviceps__wet-click.wav")
@@ -15,18 +25,20 @@ extends Node3D
 var _icon_turr1 := preload("res://sprites/icon.svg")
 var _icon_emi := preload("res://sprites/icon.svg")
 
+const MAX_OBJECTS = 5
+
 var _placed_turr1 := 0
 var _placed_emi := 0
 var _left_turr1 := 5
 var _left_emi := 1
 var _count_set := 0
-var _clicks_left := 10
+var _clicks_left := MAX_OBJECTS * 2
 var _selected := W.NONE
 
 enum W { NONE, TURR1, EMI }
 const SIZE_X := 6
 const SIZE_Y := 3
-var setup := [
+var _setup := [
 	W.NONE, W.NONE, W.NONE, W.NONE, W.NONE, W.NONE,
 	W.NONE, W.NONE, W.NONE, W.NONE, W.NONE, W.NONE,
 	W.NONE, W.NONE, W.NONE, W.NONE, W.NONE, W.NONE,
@@ -50,6 +62,8 @@ func _update_counts():
 	_turr1_count.text = str(_placed_turr1, ' ')
 	_but_emi.text = _trans("EMIGEN", _left_emi)
 	_emi_count.text = str(_placed_emi, ' ')
+	if _count_set == MAX_OBJECTS:
+		_footer_ready.visible = true
 
 
 func _trans(key: String, num: int) -> String:
@@ -71,20 +85,24 @@ func _do_click() -> bool:
 	_clicks_left -= 1
 	_clicks_count.text = str(_clicks_left, ' ')
 	_deselect()
+	if _clicks_left <= 0:
+		_footer_not_ready.visible = false
+		if _count_set < 1:
+			_footer_game_over.visible = true
 	return true
 
 
 func _on_turret_1_pressed():
 	if not _do_click(): return
 	_selected = W.TURR1
-	_but_turr1.self_modulate = Color.hex(0xF39684)
+	_but_turr1.self_modulate = Color.hex(0x5E7ECB)
 	_play_selected()
 
 
 func _on_emi_generator_pressed():
 	if not _do_click(): return
 	_selected = W.EMI
-	_but_emi.self_modulate = Color.hex(0xF39684)
+	_but_emi.self_modulate = Color.hex(0x5E7ECB)
 	_play_selected()
 
 
@@ -102,24 +120,38 @@ func _play_place():
 
 
 func _on_grid_pressed(x: int, y: int, but: BaseButton):
+	var sel = _selected
 	if not _do_click(): return
 	_play_place()
+	if sel == W.NONE: return
 	var index = y * SIZE_X + x
-	match _selected:
-		W.EMI:
-			if _left_turr1 < 1: return
-			_left_turr1 -= 1
-			if setup[index] != _selected:
-				_placed_turr1 += 1
-			but.icon = _icon_turr1
+	match sel:
 		W.TURR1:
-			if _left_emi < 1: return
+			_left_turr1 -= 1
+			if _left_turr1 < 1:
+				_but_turr1.visible = false
+			if _setup[index] != sel:
+				_placed_turr1 += 1
+			but.texture_normal = _icon_turr1
+		W.EMI:
 			_left_emi -= 1
-			if setup[index] != _selected:
+			if _left_emi < 1:
+				_but_emi.visible = false
+			if _setup[index] != sel:
 				_placed_emi += 1
-			but.icon = _icon_emi
-	setup[index] = _selected
+			but.texture_normal = _icon_emi
+	_setup[index] = sel
 	_count_set += 1
+	_footer_not_ready.visible = false
+	_but_start.disabled = false
 	_update_counts()
 
-	
+
+func _on_but_start_pressed():
+	_play_place()
+	start.emit(_setup)
+
+
+func _on_but_quit_pressed():
+	_play_place()
+	quit.emit()

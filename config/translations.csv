@@ -35,3 +35,6 @@ PLANSTATS,Statistics,Статистика
 CLICKS, Clicks:, Кликов:
 TURR1S, S.Turrets:, Од.Пушек
 EMIS, EMI Gens:, Э/М Ген-ров:
+NOT_READY,Not Ready,Не Готов
+READY,Ready!,Готов!
+GAME_OVER,Gave Over,Игра Окончена

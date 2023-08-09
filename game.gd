@@ -2,6 +2,7 @@ extends Node
 
 signal paused
 signal started
+signal quit
 
 var active := false
 
@@ -33,7 +34,10 @@ func pause():
 	get_tree().paused = true
 	paused.emit()
 
-
 func start():
 	get_tree().paused = false
 	started.emit()
+
+func quitgame():
+	get_tree().paused = true
+	quit.emit()

@@ -28,6 +28,39 @@ script = ExtResource("1_2kku7")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
 fov = 90.0
 
+[node name="HeaderRect" type="ColorRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_right = 360.0
+offset_bottom = 89.0
+grow_horizontal = 2
+color = Color(0.105882, 0.117647, 0.0509804, 0.501961)
+
+[node name="Header" type="Label" parent="HeaderRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLAN_TITLE"
+label_settings = SubResource("LabelSettings_uo52u")
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="HeaderRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLAN_SUBTITLE"
+label_settings = SubResource("LabelSettings_mbylg")
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="GridContainer" type="GridContainer" parent="."]
 unique_name_in_owner = true
 anchors_preset = 8
@@ -375,39 +408,6 @@ border_color = Color(0.368627, 0.494118, 0.796078, 1)
 border_width = 4.0
 editor_only = false
 
-[node name="HeaderRect" type="ColorRect" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -360.0
-offset_right = 360.0
-offset_bottom = 89.0
-grow_horizontal = 2
-color = Color(0.105882, 0.117647, 0.0509804, 0.501961)
-
-[node name="Header" type="Label" parent="HeaderRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "PLAN_TITLE"
-label_settings = SubResource("LabelSettings_uo52u")
-horizontal_alignment = 1
-
-[node name="Description" type="Label" parent="HeaderRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "PLAN_SUBTITLE"
-label_settings = SubResource("LabelSettings_mbylg")
-horizontal_alignment = 1
-vertical_alignment = 2
-
 [node name="WeaponsRect" type="ColorRect" parent="."]
 anchors_preset = 11
 anchor_left = 1.0
@@ -557,6 +557,87 @@ text = "1 "
 label_settings = SubResource("LabelSettings_iqlgw")
 horizontal_alignment = 2
 
+[node name="FooterRect" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = -89.0
+offset_right = 360.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.105882, 0.117647, 0.0509804, 0.501961)
+
+[node name="FooterNotReady" type="Label" parent="FooterRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "NOT_READY"
+label_settings = SubResource("LabelSettings_uo52u")
+horizontal_alignment = 1
+
+[node name="FooterReady" type="Label" parent="FooterRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "NOT_READY"
+label_settings = SubResource("LabelSettings_uo52u")
+horizontal_alignment = 1
+
+[node name="FooterGameOver" type="Label" parent="FooterRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "NOT_READY"
+label_settings = SubResource("LabelSettings_uo52u")
+horizontal_alignment = 1
+
+[node name="Description" type="HBoxContainer" parent="FooterRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ButStart" type="Button" parent="FooterRect/Description"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.368627, 0.494118, 0.796078, 1)
+theme_override_colors/font_disabled_color = Color(0.129412, 0.203922, 0.396078, 1)
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "START"
+
+[node name="Separator" type="Control" parent="FooterRect/Description"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="ButQuit" type="Button" parent="FooterRect/Description"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.588235, 0.517647, 1)
+theme_override_font_sizes/font_size = 24
+text = "QUIT"
+
 [node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
 
@@ -565,3 +646,7 @@ bus = &"SFX"
 [connection signal="pressed" from="WeaponsRect/WeaponsList/Turret1" to="." method="_on_turret_1_pressed"]
 [connection signal="mouse_entered" from="WeaponsRect/WeaponsList/EmiGenerator" to="." method="_play_hover"]
 [connection signal="pressed" from="WeaponsRect/WeaponsList/EmiGenerator" to="." method="_on_emi_generator_pressed"]
+[connection signal="mouse_entered" from="FooterRect/Description/ButStart" to="." method="_play_hover"]
+[connection signal="pressed" from="FooterRect/Description/ButStart" to="." method="_on_but_start_pressed"]
+[connection signal="mouse_entered" from="FooterRect/Description/ButQuit" to="." method="_play_hover"]
+[connection signal="pressed" from="FooterRect/Description/ButQuit" to="." method="_on_but_quit_pressed"]

@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnqcsnrv4k6fe"]
+[gd_scene load_steps=5 format=3 uid="uid://dnqcsnrv4k6fe"]
 
+[ext_resource type="Script" path="res://maps/map-01.gd" id="1_jatko"]
 [ext_resource type="PackedScene" uid="uid://dyf75pk8uh8b7" path="res://objects/landscape/landscape.tscn" id="1_ke4h4"]
 [ext_resource type="Environment" uid="uid://n4nlchsj7tv7" path="res://config/enviroment_day.tres" id="1_x6fik"]
 [ext_resource type="PackedScene" uid="uid://dt08fx6a1pu5a" path="res://objects/top_view_planner.tscn" id="3_xldbd"]
 
 [node name="Map01" type="Node3D"]
 process_mode = 1
+script = ExtResource("1_jatko")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.567765, -0.738107, 0.364474, 0.0414948, 0.416533, 0.908173, -0.822144, 0.530753, -0.205866, 0, 250, 0)
@@ -25,3 +27,6 @@ transform = Transform3D(-0.232679, -0.40729, -0.883162, 0.0792604, -0.913006, 0.
 light_energy = 6.657
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
+
+[connection signal="quit" from="TopViewPlanner" to="." method="_on_top_view_planner_quit"]
+[connection signal="start" from="TopViewPlanner" to="." method="_on_top_view_planner_start"]
