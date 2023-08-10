@@ -1,7 +1,7 @@
 class_name Main
 extends Node
 
-@onready var menu := $Menu
+@onready var menu := $Menu3D
 
 
 func _ready():

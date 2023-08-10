@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b78pdde4ee4tp"]
+
+[ext_resource type="PackedScene" uid="uid://ddixpo42433pn" path="res://objects/enemies/alien_fighter.glb" id="1_rap5y"]
+[ext_resource type="Material" uid="uid://h8igx7bb7uf0" path="res://objects/enemies/mat_alien_fighter.tres" id="2_xeh4j"]
+
+[node name="alien_fighter" instance=ExtResource("1_rap5y")]
+
+[node name="AlienFighter" parent="." index="0"]
+material_override = ExtResource("2_xeh4j")

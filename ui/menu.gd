@@ -30,6 +30,7 @@ func _ready():
 
 
 func show_main():
+	visible = true
 	_hide_subs()
 	_main.visible = true
 	_but_start.visible = not Game.active
@@ -63,7 +64,7 @@ func _play_hover():
 func _on_button_start_pressed():
 	_prepare_start()
 	var node = load("res://maps/map-01.tscn").instantiate()
-	add_sibling(node)
+	get_parent().add_sibling(node)
 
 func _on_button_continue_pressed():
 	_prepare_start()

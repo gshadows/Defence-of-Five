@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://7483lvfdli46"]
+
+[ext_resource type="PackedScene" uid="uid://d3ap1v0svbc1a" path="res://ui/menu.tscn" id="1_twrrc"]
+[ext_resource type="PackedScene" uid="uid://b78pdde4ee4tp" path="res://objects/enemies/alien_fighter.tscn" id="2_xaxc1"]
+[ext_resource type="PackedScene" uid="uid://bxgaptas5nlwl" path="res://objects/defence/turret_single.glb" id="3_3arvv"]
+[ext_resource type="PackedScene" uid="uid://3txprf3wjjs5" path="res://objects/enemies/alien_mother_ship.tscn" id="4_6m7fx"]
+
+[sub_resource type="GDScript" id="GDScript_uef2g"]
+resource_name = "menu_3d"
+script/source = "extends Node3D
+
+signal quit
+func _on_menu_quit(): quit.emit()
+
+func show_main():
+	$Camera3D.current = true
+	$Menu.show_main()
+"
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1y807"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_energy_multiplier = 0.5
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_jl84u"]
+sky_material = SubResource("ProceduralSkyMaterial_1y807")
+
+[sub_resource type="Environment" id="Environment_ircu1"]
+background_mode = 1
+sky = SubResource("Sky_jl84u")
+ambient_light_source = 1
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.329412, 0.25098, 0.168627, 1)
+fog_sun_scatter = 0.68
+fog_density = 0.02
+fog_sky_affect = 0.5
+volumetric_fog_density = 0.0
+volumetric_fog_albedo = Color(0.980392, 0.980392, 0.980392, 1)
+
+[node name="Menu3D" type="Node3D"]
+script = SubResource("GDScript_uef2g")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ircu1")
+
+[node name="Menu" parent="." instance=ExtResource("1_twrrc")]
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="SunBottom" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.29039, -0.49924, 0.816354, 0.864118, 0.503289, 0.000404967, -0.411064, 0.705309, 0.577552, 0, 0, 0)
+light_energy = 0.1
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0215855, -0.0170984, 7.92887)
+current = true
+
+[node name="alien_fighter" parent="." instance=ExtResource("2_xaxc1")]
+transform = Transform3D(0.86015, 0.440928, -0.25637, -0.450502, 0.892467, 0.0234589, 0.239145, 0.0953171, 0.966294, -4.52973, -9.53674e-07, -5.16426)
+
+[node name="alien_fighter2" parent="." instance=ExtResource("2_xaxc1")]
+transform = Transform3D(-0.552656, -0.258142, -0.792423, -0.450502, 0.892467, 0.0234589, 0.701156, 0.369953, -0.60952, 6.18578, -4.76837e-06, -20.6433)
+
+[node name="alien_fighter3" parent="." instance=ExtResource("2_xaxc1")]
+transform = Transform3D(-0.552656, -0.258142, -0.792423, -0.450502, 0.892467, 0.0234589, 0.701156, 0.369953, -0.60952, 0.685331, 5.69033, -74.852)
+
+[node name="turret_single" parent="." instance=ExtResource("3_3arvv")]
+transform = Transform3D(0.930304, 0.239879, -0.277476, -0.304051, 0.927472, -0.217598, 0.205155, 0.286799, 0.935766, -0.737156, -1.65428, 5.18983)
+
+[node name="alien_mother_ship" parent="." instance=ExtResource("4_6m7fx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.309387, 8.47682, -27.2996)
+
+[connection signal="quit" from="Menu" to="." method="_on_menu_quit"]

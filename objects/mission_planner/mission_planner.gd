@@ -55,6 +55,7 @@ func _ready():
 			if (but.disabled): continue
 			but.mouse_entered.connect(_play_hover)
 			but.pressed.connect(_on_grid_pressed.bind(x, y, but))
+	$Camera3D.current = true
 
 
 func _update_counts():

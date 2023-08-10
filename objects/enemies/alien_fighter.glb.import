@@ -23,10 +23,16 @@ meshes/create_shadow_meshes=true
 meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 skins/use_named_skins=true
-animation/import=true
+animation/import=false
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"@MATERIAL:0": {
+"use_external/path": "res://objects/enemies/mat_alien_fighter.tres"
+}
+}
+}
 gltf/embedded_image_handling=1

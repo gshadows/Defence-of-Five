@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://3txprf3wjjs5"]
+
+[ext_resource type="PackedScene" uid="uid://fn13b5b3yw2e" path="res://objects/enemies/alien_mother_ship.glb" id="1_v0gjy"]
+[ext_resource type="Material" uid="uid://bmdhdihs267ms" path="res://objects/enemies/mat_alien_mother.tres" id="2_lpms1"]
+
+[node name="alien_mother_ship" instance=ExtResource("1_v0gjy")]
+
+[node name="AlienMotherShip" parent="." index="0"]
+material_override = ExtResource("2_lpms1")
