@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://maps/map-01.gd" id="1_jatko"]
 [ext_resource type="PackedScene" uid="uid://dyf75pk8uh8b7" path="res://objects/landscape/landscape.tscn" id="1_ke4h4"]
 [ext_resource type="Environment" uid="uid://n4nlchsj7tv7" path="res://config/enviroment_day.tres" id="1_x6fik"]
-[ext_resource type="PackedScene" uid="uid://dt08fx6a1pu5a" path="res://objects/top_view_planner.tscn" id="3_xldbd"]
+[ext_resource type="PackedScene" uid="uid://dt08fx6a1pu5a" path="res://objects/mission_planner/mission_planner.tscn" id="3_xldbd"]
 
 [node name="Map01" type="Node3D"]
 process_mode = 1
@@ -19,14 +19,14 @@ environment = ExtResource("1_x6fik")
 
 [node name="landscape" parent="." instance=ExtResource("1_ke4h4")]
 
-[node name="TopViewPlanner" parent="." instance=ExtResource("3_xldbd")]
+[node name="MissionPlanner" parent="." instance=ExtResource("3_xldbd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.645, 112.112, -10.8553)
 
-[node name="PlannerSun" type="DirectionalLight3D" parent="TopViewPlanner"]
+[node name="PlannerSun" type="DirectionalLight3D" parent="MissionPlanner"]
 transform = Transform3D(-0.232679, -0.40729, -0.883162, 0.0792604, -0.913006, 0.400172, -0.969318, 0.0231118, 0.244719, 15.645, -73.2338, 10.8553)
 light_energy = 6.657
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 
-[connection signal="quit" from="TopViewPlanner" to="." method="_on_top_view_planner_quit"]
-[connection signal="start" from="TopViewPlanner" to="." method="_on_top_view_planner_start"]
+[connection signal="quit" from="MissionPlanner" to="." method="_on_top_view_planner_quit"]
+[connection signal="start" from="MissionPlanner" to="." method="_on_top_view_planner_start"]
