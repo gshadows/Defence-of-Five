@@ -1,26 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://dt08fx6a1pu5a"]
+[gd_scene load_steps=9 format=3 uid="uid://dt08fx6a1pu5a"]
 
 [ext_resource type="Script" path="res://objects/mission_planner/mission_planner.gd" id="1_81h8s"]
 [ext_resource type="Texture2D" uid="uid://cj87j7pmkn4on" path="res://sprites/turret_1.png" id="2_6bpic"]
+[ext_resource type="LabelSettings" uid="uid://bfpitniai4pn7" path="res://objects/mission_planner/yellow_title.tres" id="2_nnrrn"]
 [ext_resource type="Texture2D" uid="uid://cfhpoifxewrv" path="res://sprites/emi_gen.png" id="3_ifrdv"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_uo52u"]
-font_size = 32
-font_color = Color(0.94902, 0.854902, 0.580392, 1)
+[ext_resource type="LabelSettings" uid="uid://35tvb8ujyaxw" path="res://objects/mission_planner/blue_title.tres" id="3_ors44"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mbylg"]
 font_size = 24
 font_color = Color(0.952941, 0.588235, 0.517647, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_djehf"]
-font_size = 32
-font_color = Color(0.368627, 0.494118, 0.796078, 1)
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
-
 [sub_resource type="LabelSettings" id="LabelSettings_iqlgw"]
 font_size = 24
 font_color = Color(0.94902, 0.854902, 0.580392, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vdtdx"]
+font_size = 32
+font_color = Color(0.952941, 0.588235, 0.517647, 1)
 
 [node name="MissionPlanner" type="Node3D"]
 script = ExtResource("1_81h8s")
@@ -47,7 +43,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "PLAN_TITLE"
-label_settings = SubResource("LabelSettings_uo52u")
+label_settings = ExtResource("2_nnrrn")
 horizontal_alignment = 1
 
 [node name="Description" type="Label" parent="HeaderRect"]
@@ -467,7 +463,7 @@ grow_vertical = 2
 [node name="Header" type="Label" parent="WeaponsRect/WeaponsList"]
 layout_mode = 2
 text = "WEAPONS"
-label_settings = SubResource("LabelSettings_djehf")
+label_settings = ExtResource("3_ors44")
 horizontal_alignment = 1
 
 [node name="Turret1" type="Button" parent="WeaponsRect/WeaponsList"]
@@ -537,7 +533,7 @@ grow_vertical = 2
 [node name="HeaderClicks" type="Label" parent="StatsRect/StatsList"]
 layout_mode = 2
 text = "RESERVES"
-label_settings = SubResource("LabelSettings_djehf")
+label_settings = ExtResource("3_ors44")
 horizontal_alignment = 1
 
 [node name="ClicksContainer" type="HBoxContainer" parent="StatsRect/StatsList"]
@@ -559,7 +555,7 @@ horizontal_alignment = 2
 [node name="HeaderStats" type="Label" parent="StatsRect/StatsList"]
 layout_mode = 2
 text = "PLANSTATS"
-label_settings = SubResource("LabelSettings_djehf")
+label_settings = ExtResource("3_ors44")
 horizontal_alignment = 1
 
 [node name="Turr1sContainer" type="HBoxContainer" parent="StatsRect/StatsList"]
@@ -609,7 +605,6 @@ color = Color(0.105882, 0.117647, 0.0509804, 0.501961)
 
 [node name="FooterNotReady" type="Label" parent="FooterRect"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -617,11 +612,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "NOT_READY"
-label_settings = SubResource("LabelSettings_uo52u")
+label_settings = ExtResource("3_ors44")
 horizontal_alignment = 1
 
 [node name="FooterReady" type="Label" parent="FooterRect"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -629,7 +625,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "READY"
-label_settings = SubResource("LabelSettings_uo52u")
+label_settings = ExtResource("2_nnrrn")
 horizontal_alignment = 1
 
 [node name="FooterGameOver" type="Label" parent="FooterRect"]
@@ -642,10 +638,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "GAME_OVER"
-label_settings = SubResource("LabelSettings_uo52u")
+label_settings = SubResource("LabelSettings_vdtdx")
 horizontal_alignment = 1
 
-[node name="Description" type="HBoxContainer" parent="FooterRect"]
+[node name="ButtonsLine" type="HBoxContainer" parent="FooterRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -655,7 +651,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="ButStart" type="Button" parent="FooterRect/Description"]
+[node name="ButStart" type="Button" parent="FooterRect/ButtonsLine"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
@@ -665,11 +661,11 @@ theme_override_font_sizes/font_size = 24
 disabled = true
 text = "START"
 
-[node name="Separator" type="Control" parent="FooterRect/Description"]
+[node name="Separator" type="Control" parent="FooterRect/ButtonsLine"]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 
-[node name="ButQuit" type="Button" parent="FooterRect/Description"]
+[node name="ButQuit" type="Button" parent="FooterRect/ButtonsLine"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
@@ -685,7 +681,7 @@ bus = &"SFX"
 [connection signal="pressed" from="WeaponsRect/WeaponsList/Turret1" to="." method="_on_turret_1_pressed"]
 [connection signal="mouse_entered" from="WeaponsRect/WeaponsList/EmiGenerator" to="." method="_play_hover"]
 [connection signal="pressed" from="WeaponsRect/WeaponsList/EmiGenerator" to="." method="_on_emi_generator_pressed"]
-[connection signal="mouse_entered" from="FooterRect/Description/ButStart" to="." method="_play_hover"]
-[connection signal="pressed" from="FooterRect/Description/ButStart" to="." method="_on_but_start_pressed"]
-[connection signal="mouse_entered" from="FooterRect/Description/ButQuit" to="." method="_play_hover"]
-[connection signal="pressed" from="FooterRect/Description/ButQuit" to="." method="_on_but_quit_pressed"]
+[connection signal="mouse_entered" from="FooterRect/ButtonsLine/ButStart" to="." method="_play_hover"]
+[connection signal="pressed" from="FooterRect/ButtonsLine/ButStart" to="." method="_on_but_start_pressed"]
+[connection signal="mouse_entered" from="FooterRect/ButtonsLine/ButQuit" to="." method="_play_hover"]
+[connection signal="pressed" from="FooterRect/ButtonsLine/ButQuit" to="." method="_on_but_quit_pressed"]

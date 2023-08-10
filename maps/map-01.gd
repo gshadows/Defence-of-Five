@@ -9,7 +9,7 @@ func _on_top_view_planner_quit():
 	queue_free()
 
 func _on_top_view_planner_start(setup):
-	$TopViewPlanner.queue_free()
+	$MissionPlanner.queue_free()
 	$Sun.visible = true
 	_create_objects(setup)
 
