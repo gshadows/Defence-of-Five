@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwpxdrusnclvv"]
+[gd_scene load_steps=4 format=3 uid="uid://bwpxdrusnclvv"]
 
 [ext_resource type="PackedScene" uid="uid://bov2eppcm8dbv" path="res://objects/defence/emi_tower.glb" id="1_klwgc"]
+[ext_resource type="Script" path="res://objects/defence/emi_tower.gd" id="2_scok2"]
+[ext_resource type="Material" uid="uid://csua6hi2005jn" path="res://objects/defence/mat_emi_tower.tres" id="2_xl4cv"]
 
 [node name="EMI Tower" instance=ExtResource("1_klwgc")]
+script = ExtResource("2_scok2")
+
+[node name="EmiTower" parent="." index="0"]
+material_override = ExtResource("2_xl4cv")
 
 [node name="CameraCenter" type="Node3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.4, 0)

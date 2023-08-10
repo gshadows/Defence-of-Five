@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://7483lvfdli46"]
 
 [ext_resource type="PackedScene" uid="uid://d3ap1v0svbc1a" path="res://ui/menu.tscn" id="1_twrrc"]
-[ext_resource type="PackedScene" uid="uid://b78pdde4ee4tp" path="res://objects/enemies/alien_fighter.tscn" id="2_xaxc1"]
-[ext_resource type="PackedScene" uid="uid://bxgaptas5nlwl" path="res://objects/defence/turret_single.glb" id="3_3arvv"]
-[ext_resource type="PackedScene" uid="uid://3txprf3wjjs5" path="res://objects/enemies/alien_mother_ship.tscn" id="4_6m7fx"]
+[ext_resource type="PackedScene" uid="uid://b78pdde4ee4tp" path="res://objects/enemies/alien_fighter_simple.tscn" id="2_xaxc1"]
+[ext_resource type="PackedScene" uid="uid://djh6bv3ljls82" path="res://objects/defence/turret_single_simple.glb" id="3_3arvv"]
+[ext_resource type="PackedScene" uid="uid://3txprf3wjjs5" path="res://objects/enemies/alien_mother_ship_simple.tscn" id="4_6m7fx"]
 
 [sub_resource type="GDScript" id="GDScript_uef2g"]
 resource_name = "menu_3d"

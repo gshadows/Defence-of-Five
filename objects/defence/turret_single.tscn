@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://ieidlhpj5xry"]
+[gd_scene load_steps=5 format=3 uid="uid://ieidlhpj5xry"]
 
 [ext_resource type="PackedScene" uid="uid://cba28jwbvtq5u" path="res://objects/defence/turret_base.glb" id="1_5mfdy"]
-[ext_resource type="PackedScene" uid="uid://bxgaptas5nlwl" path="res://objects/defence/turret_single.glb" id="2_ca41n"]
+[ext_resource type="Script" path="res://objects/defence/turret_single.gd" id="2_cj62v"]
+[ext_resource type="Material" uid="uid://dgf7uefamg717" path="res://objects/defence/mat_turret_single.tres" id="2_if318"]
+[ext_resource type="PackedScene" uid="uid://djh6bv3ljls82" path="res://objects/defence/turret_single_simple.tscn" id="3_beojb"]
 
 [node name="TurretSingle" instance=ExtResource("1_5mfdy")]
+script = ExtResource("2_cj62v")
 
-[node name="Turret" parent="." index="1" instance=ExtResource("2_ca41n")]
+[node name="TurretBase" parent="." index="0"]
+material_override = ExtResource("2_if318")
+
+[node name="Turret" parent="." index="1" instance=ExtResource("3_beojb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Turret" index="1"]

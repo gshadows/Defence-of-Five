@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://djh6bv3ljls82"]
+
+[ext_resource type="Material" uid="uid://dgf7uefamg717" path="res://objects/defence/mat_turret_single.tres" id="2_h64lp"]
+[ext_resource type="PackedScene" uid="uid://bxgaptas5nlwl" path="res://objects/defence/turret_single.glb" id="2_nxch8"]
+
+[node name="turret_single_simple" instance=ExtResource("2_nxch8")]
+
+[node name="TurretSingle" parent="." index="0"]
+material_override = ExtResource("2_h64lp")
