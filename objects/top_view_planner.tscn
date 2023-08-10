@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dt08fx6a1pu5a"]
+[gd_scene load_steps=8 format=3 uid="uid://dt08fx6a1pu5a"]
 
 [ext_resource type="Script" path="res://objects/top_view_planner.gd" id="1_2kku7"]
-[ext_resource type="Texture2D" uid="uid://bplbpf33gvxkp" path="res://sprites/icon.svg" id="2_sas1h"]
+[ext_resource type="Texture2D" uid="uid://cj87j7pmkn4on" path="res://sprites/turret_1.png" id="2_o1m6v"]
+[ext_resource type="Texture2D" uid="uid://cfhpoifxewrv" path="res://sprites/emi_gen.png" id="3_fa00a"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uo52u"]
 font_size = 32
@@ -81,6 +82,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 disabled = true
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ColorRect" type="ReferenceRect" parent="GridContainer/Button1"]
 visible = false
@@ -100,6 +103,8 @@ editor_only = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ColorRect" type="ReferenceRect" parent="GridContainer/Button2"]
 layout_mode = 1
@@ -118,6 +123,8 @@ editor_only = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ColorRect" type="ReferenceRect" parent="GridContainer/Button3"]
 layout_mode = 1
@@ -136,6 +143,8 @@ editor_only = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ColorRect" type="ReferenceRect" parent="GridContainer/Button4"]
 layout_mode = 1
@@ -154,6 +163,8 @@ editor_only = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ColorRect" type="ReferenceRect" parent="GridContainer/Button5"]
 layout_mode = 1
@@ -172,6 +183,8 @@ editor_only = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ColorRect" type="ReferenceRect" parent="GridContainer/Button6"]
 layout_mode = 1
@@ -190,6 +203,8 @@ editor_only = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ColorRect" type="ReferenceRect" parent="GridContainer/Button7"]
 layout_mode = 1
@@ -208,6 +223,8 @@ editor_only = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ColorRect" type="ReferenceRect" parent="GridContainer/Button8"]
 layout_mode = 1
@@ -226,6 +243,8 @@ editor_only = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ColorRect" type="ReferenceRect" parent="GridContainer/Button9"]
 layout_mode = 1
@@ -244,6 +263,8 @@ editor_only = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ColorRect" type="ReferenceRect" parent="GridContainer/Button10"]
 layout_mode = 1
@@ -262,6 +283,8 @@ editor_only = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ColorRect" type="ReferenceRect" parent="GridContainer/Button11"]
 layout_mode = 1
@@ -280,6 +303,8 @@ editor_only = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ColorRect" type="ReferenceRect" parent="GridContainer/Button12"]
 layout_mode = 1
@@ -299,6 +324,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 disabled = true
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ColorRect" type="ReferenceRect" parent="GridContainer/Button13"]
 visible = false
@@ -318,6 +345,8 @@ editor_only = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ColorRect" type="ReferenceRect" parent="GridContainer/Button14"]
 layout_mode = 1
@@ -336,6 +365,8 @@ editor_only = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ColorRect" type="ReferenceRect" parent="GridContainer/Button15"]
 layout_mode = 1
@@ -354,6 +385,8 @@ editor_only = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ColorRect" type="ReferenceRect" parent="GridContainer/Button16"]
 layout_mode = 1
@@ -373,6 +406,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 disabled = true
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ColorRect" type="ReferenceRect" parent="GridContainer/Button17"]
 visible = false
@@ -393,6 +428,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 disabled = true
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ColorRect" type="ReferenceRect" parent="GridContainer/Button18"]
 visible = false
@@ -439,7 +476,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
 text = "TURRET"
-icon = ExtResource("2_sas1h")
+icon = ExtResource("2_o1m6v")
 flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -463,7 +500,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
 text = "EMIGEN"
-icon = ExtResource("2_sas1h")
+icon = ExtResource("3_fa00a")
 flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0

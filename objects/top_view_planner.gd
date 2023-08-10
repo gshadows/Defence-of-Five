@@ -22,8 +22,8 @@ signal start(setup)
 @onready var _snd_place = preload("res://audio/MenuClick - 448080__breviceps__wet-click.wav")
 @onready var _snd_hover = preload("res://audio/MenuHover - 422971__dkiller2204__sfxkeypickup.wav")
 
-var _icon_turr1 := preload("res://sprites/icon.svg")
-var _icon_emi := preload("res://sprites/icon.svg")
+var _icon_turr1 := preload("res://sprites/turret_1.png")
+var _icon_emi := preload("res://sprites/emi_gen.png")
 
 const MAX_OBJECTS = 5
 
