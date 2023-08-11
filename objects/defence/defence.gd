@@ -6,6 +6,7 @@ const FLY_SPEED := 10.0
 var _camera: Camera3D				# Our camera node (Camera3D).
 var _final_transform: Transform3D	# Our camera normal transform.
 var _cam_fly := false				# True when flying view to current camera.
+var _active := false
 
 
 # Should be called from _on_ready() to initialize.
@@ -27,6 +28,12 @@ func activate():
 		_cam_fly = true
 		_camera.global_transform = cur_cam.global_transform
 	_camera.current = true
+	_active = true
+
+
+func deactivate() -> Camera3D:
+	_active = false
+	return _camera
 
 
 func _process(delta: float) -> void:

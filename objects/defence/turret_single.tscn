@@ -15,4 +15,5 @@ material_override = ExtResource("2_if318")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Turret" index="1"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.687797, 0.381084)

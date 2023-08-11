@@ -103,6 +103,8 @@ gizmo_extents = 5.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, 17.1495)
 gizmo_extents = 5.0
 
+[node name="Node" type="Node" parent="MissionPlanner"]
+
 [node name="Defence" type="Node" parent="."]
 unique_name_in_owner = true
 
