@@ -28,6 +28,7 @@ light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 
 [node name="PlacementGrid" type="Node3D" parent="MissionPlanner"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.645, -112.112, 10.8553)
 
 [node name="Marker1" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
@@ -101,6 +102,15 @@ gizmo_extents = 5.0
 [node name="Marker18" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, 17.1495)
 gizmo_extents = 5.0
+
+[node name="Defence" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Buildings" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Aliens" type="Node" parent="."]
+unique_name_in_owner = true
 
 [connection signal="quit" from="MissionPlanner" to="." method="_on_top_view_planner_quit"]
 [connection signal="start" from="MissionPlanner" to="." method="_on_top_view_planner_start"]

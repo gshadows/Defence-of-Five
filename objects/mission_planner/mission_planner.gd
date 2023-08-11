@@ -1,4 +1,4 @@
-class_name TopViewPlanner
+class_name MissionPlanner
 extends Node3D
 
 signal quit
