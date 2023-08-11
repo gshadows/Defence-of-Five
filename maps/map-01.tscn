@@ -11,7 +11,6 @@ script = ExtResource("1_jatko")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.567765, -0.738107, 0.364474, 0.0414948, 0.416533, 0.908173, -0.822144, 0.530753, -0.205866, 0, 250, 0)
-visible = false
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -27,6 +26,81 @@ transform = Transform3D(-0.232679, -0.40729, -0.883162, 0.0792604, -0.913006, 0.
 light_energy = 6.657
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
+
+[node name="PlacementGrid" type="Node3D" parent="MissionPlanner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.645, -112.112, 10.8553)
+
+[node name="Marker1" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 0, -36)
+gizmo_extents = 5.0
+
+[node name="Marker2" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52, 0, -36)
+gizmo_extents = 5.0
+
+[node name="Marker3" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -36)
+gizmo_extents = 5.0
+
+[node name="Marker4" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -36)
+gizmo_extents = 5.0
+
+[node name="Marker5" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -36)
+gizmo_extents = 5.0
+
+[node name="Marker6" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, -36)
+gizmo_extents = 5.0
+
+[node name="Marker7" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 0, -10)
+gizmo_extents = 5.0
+
+[node name="Marker8" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52, 0, -10)
+gizmo_extents = 5.0
+
+[node name="Marker9" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -10)
+gizmo_extents = 5.0
+
+[node name="Marker10" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -10)
+gizmo_extents = 5.0
+
+[node name="Marker11" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -10)
+gizmo_extents = 5.0
+
+[node name="Marker12" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, -10)
+gizmo_extents = 5.0
+
+[node name="Marker13" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 0, 20)
+gizmo_extents = 5.0
+
+[node name="Marker14" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52, 0, 20)
+gizmo_extents = 5.0
+
+[node name="Marker15" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 20)
+gizmo_extents = 5.0
+
+[node name="Marker16" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 20)
+gizmo_extents = 5.0
+
+[node name="Marker17" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 20)
+gizmo_extents = 5.0
+
+[node name="Marker18" type="Marker3D" parent="MissionPlanner/PlacementGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, 17.1495)
+gizmo_extents = 5.0
 
 [connection signal="quit" from="MissionPlanner" to="." method="_on_top_view_planner_quit"]
 [connection signal="start" from="MissionPlanner" to="." method="_on_top_view_planner_start"]

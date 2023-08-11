@@ -8,7 +8,6 @@ signal start(setup)
 @onready var _but_turr1 := %Turret1
 @onready var _but_emi := %EmiGenerator
 @onready var _but_start := %ButStart
-@onready var _but_quit := %ButQuit
 
 @onready var _clicks_count := %ClicksCount
 @onready var _turr1_count := %Turr1sCount
