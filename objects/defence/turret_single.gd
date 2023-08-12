@@ -1,17 +1,19 @@
 extends Defence
 
+const ROTATION_UP_LIMIT := deg_to_rad(68.0)
+const ROTATION_DN_LIMIT := deg_to_rad(-28.0)
+
 
 func _ready() -> void:
-	prepare(%Camera3D)
+	prepare(%Camera3D, $Turret, $Turret, ROTATION_UP_LIMIT, ROTATION_DN_LIMIT)
 
 
 func _process(delta: float) -> void:
 	super._process(delta) # Move camera
-	pass
 
 
 func _on_activated():
-	pass
+	super._on_activated()
 
 func _on_deactivated():
-	pass
+	super._on_deactivated()

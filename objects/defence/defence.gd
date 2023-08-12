@@ -5,18 +5,38 @@ const FLY_TIME_FAST := 0.5
 const FLY_TIME_SLOW := 3.0
 const FLY_PRECISION := 0.999
 
+var _rot_lr: Node3D		# Object to rotate left-right.
+var _rot_ud: Node3D		# Object to rotate up-down.
+var _rot_up_lim: float
+var _rot_down_lim: float
+
 var _camera: Camera3D				# Our camera node (Camera3D).
 var _start_transform: Transform3D	# Initial transform from which we fly.
 var _final_transform: Transform3D	# Our camera normal transform, where we should fly.
+
 var _fly_pos: float		# Camera fly position: 0..1, where 0 = start, 1 - final
 var _fly_time: float	# Current overall fly time (speed), seconds.
 var _cam_fly := false	# True when flying view to current camera.
 var _active := false	# Defence object is active. Used by derived scripts to enable input etc.
 
+@onready var mouse_sensitivity := Settings.controls.mouse_sensitivity
+@onready var mouse_invert_y := Settings.controls.mouse_invert_y
+
+
+func _on_controls_setup_update():
+	mouse_sensitivity = Settings.controls.mouse_sensitivity
+	mouse_invert_y = Settings.controls.mouse_invert_y
+
 
 # Should be called from _on_ready() to initialize.
-func prepare(cam: Camera3D):
+func prepare(cam: Camera3D, rot_lr: Node3D, rot_ud: Node3D, rot_up_lim: float, rot_down_lim: float):
+	Settings.controls_setup_updated.connect(_on_controls_setup_update)
+	switch_processing(false) # Disable processing until activated.
 	_camera = cam
+	_rot_lr = rot_lr
+	_rot_ud = rot_ud
+	_rot_up_lim = rot_up_lim
+	_rot_down_lim = rot_down_lim
 	_final_transform = cam.global_transform
 	_start_transform = _final_transform
 
@@ -36,6 +56,7 @@ func activate(slow: float = false):
 		_fly_time = FLY_TIME_SLOW if slow else FLY_TIME_FAST
 		_cam_fly = true
 	_camera.current = true
+	switch_processing(true)
 
 
 func deactivate():
@@ -55,5 +76,26 @@ func _process(delta: float) -> void:
 	else:
 		_camera.global_transform = _start_transform.interpolate_with(_final_transform, _fly_pos)
 
-func _on_activated(): pass
-func _on_deactivated(): pass
+func _on_activated():
+	pass
+
+func _on_deactivated():
+	switch_processing(false)
+
+func switch_processing(enable: bool):
+	set_process(enable)
+	set_physics_process(enable)
+	set_process_input(enable)
+	set_process_unhandled_input(enable)
+
+
+func _unhandled_input(event: InputEvent):
+	if _active and (event is InputEventMouseMotion):
+		# Mouse look: left-right
+		_rot_lr.rotate_y(-event.relative.x * mouse_sensitivity.x)
+		# Mouse look: up-down
+		var cy := mouse_sensitivity.y
+		if mouse_invert_y: cy *= -1
+		_rot_ud.rotate_x(-event.relative.y * cy)
+		_rot_ud.rotation.x = clamp(_rot_ud.rotation.x, _rot_down_lim, _rot_up_lim)
+		get_viewport().set_input_as_handled()
