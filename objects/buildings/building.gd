@@ -1,2 +1,4 @@
 class_name Building
-extends Node3D
+extends StaticBody3D
+
+var health = 100

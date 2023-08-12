@@ -37,7 +37,7 @@ var _selected := W.NONE
 enum W { NONE, TURR1, EMI }
 const SIZE_X := 6
 const SIZE_Y := 3
-var _setup := [
+var _setup: Array[W] = [
 	W.NONE, W.NONE, W.NONE, W.NONE, W.NONE, W.NONE,
 	W.NONE, W.NONE, W.NONE, W.NONE, W.NONE, W.NONE,
 	W.NONE, W.NONE, W.NONE, W.NONE, W.NONE, W.NONE,
@@ -155,3 +155,7 @@ func _on_but_start_pressed():
 func _on_but_quit_pressed():
 	_play_place()
 	quit.emit()
+
+
+func get_camera() -> Camera3D:
+	return $Camera3D

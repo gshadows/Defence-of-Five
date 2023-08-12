@@ -14,5 +14,6 @@ material_override = ExtResource("2_xl4cv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.4, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraCenter" index="0"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.755674)
 fov = 120.0

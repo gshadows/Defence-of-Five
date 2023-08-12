@@ -670,7 +670,6 @@ text = "QUIT"
 [node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
 
-[connection signal="pressed" from="GridContainer/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="mouse_entered" from="WeaponsRect/WeaponsList/Turret1" to="." method="_play_hover"]
 [connection signal="pressed" from="WeaponsRect/WeaponsList/Turret1" to="." method="_on_turret_1_pressed"]
 [connection signal="mouse_entered" from="WeaponsRect/WeaponsList/EmiGenerator" to="." method="_play_hover"]
