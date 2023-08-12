@@ -10,10 +10,9 @@ script = ExtResource("2_scok2")
 [node name="EmiTower" parent="." index="0"]
 material_override = ExtResource("2_xl4cv")
 
-[node name="CameraCenter" type="Node3D" parent="." index="1"]
+[node name="RotationPoint" type="Node3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.4, 0)
 
-[node name="Camera3D" type="Camera3D" parent="CameraCenter" index="0"]
+[node name="Camera3D" type="Camera3D" parent="RotationPoint" index="0"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.755674)
-fov = 120.0

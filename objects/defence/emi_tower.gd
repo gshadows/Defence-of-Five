@@ -5,7 +5,7 @@ const ROTATION_DN_LIMIT := deg_to_rad(0.0)
 
 
 func _ready() -> void:
-	prepare(%Camera3D, %Camera3D, $CameraCenter, ROTATION_UP_LIMIT, ROTATION_DN_LIMIT)
+	prepare(%Camera3D, $RotationPoint, %Camera3D, ROTATION_UP_LIMIT, ROTATION_DN_LIMIT)
 
 
 func _process(delta: float) -> void:

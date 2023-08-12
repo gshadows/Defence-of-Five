@@ -62,6 +62,8 @@ func activate(slow: float = false):
 func deactivate():
 	_cam_fly = false
 	_active = false
+	if _fly_time != FLY_TIME_SLOW:
+		_final_transform = _camera.global_transform
 	_on_deactivated()
 
 

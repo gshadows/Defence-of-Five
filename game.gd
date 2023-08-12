@@ -31,6 +31,7 @@ func _on_video_setup_upd():
 
 
 func pause():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = true
 	paused.emit()
 
@@ -39,5 +40,6 @@ func start():
 	started.emit()
 
 func quitgame():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = true
 	quit.emit()
