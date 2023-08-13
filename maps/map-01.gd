@@ -49,7 +49,6 @@ func _compare(a: Defence, b: Defence) -> bool:
 	var dx := pb.x - pa.x
 	var dz := pb.z - pa.z
 	var res := (dz > dx) or ((absf(dz) < absf(dx)) and (dx > 0))
-	print("Compare dx ", dx, ", dz ", dz, " -> ", res)
 	return res
 
 func _show_markers():
@@ -82,6 +81,8 @@ func _add_defence(marker: Node3D, scene: PackedScene, index: int):
 	weapon.bullets = bullets
 	weapon.name = weapon.name + str(" ", index)
 	weapon.dead.connect(_defence_dead)
+	if weapon is EmiTower:
+		(weapon as EmiTower).aliens = aliens
 	defence.add_child(weapon)
 
 func _defence_dead(dead_node: Defence):

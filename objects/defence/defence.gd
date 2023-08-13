@@ -86,7 +86,7 @@ func deactivate():
 
 func _process(delta: float) -> void:
 	if _cam_fly: _do_cam_fly(delta)
-	if Input.is_action_pressed("fire"): _do_shooting()
+	if Input.is_action_pressed("fire"): do_shooting()
 
 
 func _do_cam_fly(delta: float) -> void:
@@ -146,11 +146,14 @@ func _explode() -> void:
 
 func get_shoot_point() -> Node3D: return _camera # To be overridden.
 
-func _do_shooting() -> void:
+func do_shooting() -> void:
 	var time = Time.get_ticks_msec()
 	if time < _next_fire:
 		return
 	_next_fire = time + fire_delay
+	fire()
+
+func fire() -> void:
 	var bullet: LaserRay = bullet_scene.instantiate()
 	bullets.add_child(bullet)
 	var shoot_point := get_shoot_point()

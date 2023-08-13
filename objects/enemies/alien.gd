@@ -47,4 +47,3 @@ func post_mortem_show():
 	_post_mortem_cam.current = true
 	var ui = _post_mortem_cam.get_node_or_null("AlienUI")
 	if ui: ui.visible = true
-
