@@ -42,6 +42,7 @@ radius = 10.8078
 [node name="HeadQuarters" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0306816, -0.0497894, 0.0051384)
 script = ExtResource("1_liauu")
+health = 500
 
 [node name="Headquarters" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)

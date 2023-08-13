@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://objects/bullets/laser_ray.gd" id="1_6iwgt"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7mbh5"]
-top_radius = 0.05
-bottom_radius = 0.05
+top_radius = 0.1
+bottom_radius = 0.1
 height = 1.0
 radial_segments = 6
 rings = 2
