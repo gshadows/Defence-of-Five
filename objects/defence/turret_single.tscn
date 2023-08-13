@@ -44,11 +44,9 @@ radius = 1.825
 
 [node name="TurretSingle" type="StaticBody3D"]
 script = ExtResource("2_cj62v")
-health = 100.0
-damage = 10.0
 fire_delay = 500.0
 bullet_scene = ExtResource("2_6cv2r")
-bullet_speed = 20.0
+bullet_speed = 0.0
 bullet_material = ExtResource("3_6bb8y")
 
 [node name="TurretBase" type="MeshInstance3D" parent="."]
@@ -66,7 +64,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.687797, 0.381084)
 
 [node name="ShootPoint" type="Node3D" parent="RotationPoint/Turret"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -4)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -4)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.72579, 0)

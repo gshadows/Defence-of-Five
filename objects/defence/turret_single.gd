@@ -19,5 +19,5 @@ func _on_activated():
 func _on_deactivated():
 	super._on_deactivated()
 
-func get_shoot_tranform() -> Transform3D:
-	return shoot_point.global_transform
+func get_shoot_point() -> Node3D:
+	return shoot_point

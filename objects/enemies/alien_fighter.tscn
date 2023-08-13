@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8wcbn8xt0ffe"]
+[gd_scene load_steps=9 format=3 uid="uid://b8wcbn8xt0ffe"]
 
 [ext_resource type="Script" path="res://objects/enemies/alien_fighter.gd" id="1_q6l5d"]
 [ext_resource type="Material" uid="uid://h8igx7bb7uf0" path="res://objects/enemies/mat_alien_fighter.tres" id="2_ts3if"]
+[ext_resource type="PackedScene" uid="uid://cqcxy0rey41ym" path="res://ui/AlienUI.tscn" id="3_2qbc1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_giy77"]
 
@@ -45,8 +46,6 @@ radius = 2.49268
 
 [node name="AlienFighter" type="CharacterBody3D"]
 script = ExtResource("1_q6l5d")
-speed = 5.0
-health = 30.0
 
 [node name="AlienFighter" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_ts3if")
@@ -60,3 +59,10 @@ shape = SubResource("CylinderShape3D_avxsh")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69502, 0)
 shape = SubResource("CylinderShape3D_54yws")
+
+[node name="PostMortemCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.1, 0)
+visible = false
+
+[node name="AlienUI" parent="PostMortemCamera" instance=ExtResource("3_2qbc1")]
+visible = false

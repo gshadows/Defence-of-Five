@@ -1,7 +1,10 @@
 class_name Building
 extends StaticBody3D
 
-@export var health = 200
+signal dead(node: Building)
+
+@export var health := 200
+var bullets: Node3D
 
 
 func on_damage(damage: float, by_player: bool) -> void:
@@ -11,7 +14,9 @@ func on_damage(damage: float, by_player: bool) -> void:
 		_explode()
 
 func _on_destroyed(by_player: bool) -> void:
-	Game.building_down(false, by_player)
+	Game.building_down(by_player)
 
 func _explode() -> void:
-	queue_free()
+	preload("res://objects/bullets/explosion.tscn") \
+		.instantiate() \
+		.setup(bullets, self, func(): dead.emit(self))

@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqcxy0rey41ym"]
+
+[sub_resource type="Gradient" id="Gradient_hidit"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.360784)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d276j"]
+noise_type = 5
+frequency = 0.15
+fractal_type = 3
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2pxwh"]
+width = 256
+height = 256
+generate_mipmaps = false
+seamless = true
+normalize = false
+color_ramp = SubResource("Gradient_hidit")
+noise = SubResource("FastNoiseLite_d276j")
+
+[sub_resource type="LabelSettings" id="LabelSettings_humnr"]
+font_size = 24
+font_color = Color(1, 0, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="AlienUI" type="Control"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_2pxwh")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -166.0
+offset_right = 166.0
+offset_bottom = 105.0
+grow_horizontal = 2
+auto_translate = false
+text = "ɤɣ ɶɷ ʨɮ
+ɲɬɫ ʊʉ₶₸
+₹₺₻ ﬕ ﬖ ﬗ"
+label_settings = SubResource("LabelSettings_humnr")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -108.0
+offset_right = 191.0
+grow_vertical = 0
+auto_translate = false
+text = "ﬕʨɮ ɤɣﬗ ₶₸
+ɲɬﬖ ɶɷ₹ ₺₻ɫʊʉ
+"
+label_settings = SubResource("LabelSettings_humnr")
+horizontal_alignment = 1

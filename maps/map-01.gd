@@ -77,19 +77,42 @@ func _create_object(marker: Node3D, type: MissionPlanner.W):
 
 
 func _add_defence(marker: Node3D, scene: PackedScene):
-	var weapon := scene.instantiate()
+	var weapon: Defence = scene.instantiate()
 	weapon.global_transform = marker.global_transform
 	weapon.bullets = bullets
+	weapon.dead.connect(_defence_dead)
 	defence.add_child(weapon)
+
+func _defence_dead(dead_node: Defence):
+	var next = null
+	for node in defence.get_children():
+		if node != dead_node:
+			next = node
+			break
+	if next:
+		next.activate()
+	else:
+		if aliens.get_child_count() > 0:
+			# Have aleins: will show post-mortem from last one.
+			for alien in aliens.get_children():
+				if alien is AlienMother:
+					next = alien
+					break
+			if not next:
+				# No alien mother ship: select random alien.
+				next = aliens.get_child(randi() % aliens.get_child_count())
+			next.post_mortem_show()
 
 
 func _add_building(marker: Node3D) -> void:
 	var scene := HEADQUARTER_SCENE if not _have_hq else BUILDING_SCENES[randi() % BUILDING_SCENES.size()]
-	_have_hq = true
 	var building: Building = scene.instantiate()
 	building.global_transform = marker.global_transform
+	building.bullets = bullets
 	building.rotate_y((randi() % 4) * PI/2)
+	if _have_hq: building.dead.connect(func(): Game.loose()) # Loose if HQ destroyed.
 	buildings.add_child(building)
+	_have_hq = true
 
 
 func _unhandled_input(event: InputEvent):

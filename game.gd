@@ -45,13 +45,14 @@ func quitgame():
 	quit.emit()
 
 
-func enemy_down(type: Alien.Type, by_player: bool):
+func enemy_down(_type: Alien.Type, _by_player: bool):
 	pass # TODO: Scores
 
-func defence_down(type: Defence.Type, by_player: bool):
+func defence_down(_type: Defence.Type, _by_player: bool):
 	pass # TODO: Scores
 
-func building_down(is_hq: bool, by_player: bool):
+func building_down(_by_player: bool):
 	pass # TODO: Scores
-	if is_hq:
-		get_tree().create_timer(1).timeout.connect(quitgame)
+
+func loose():
+	get_tree().create_timer(1).timeout.connect(quitgame)

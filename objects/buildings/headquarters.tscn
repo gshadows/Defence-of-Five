@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bu6ieic45k5pi"]
 
-[ext_resource type="Script" path="res://objects/buildings/headquarters.gd" id="1_d8xvy"]
+[ext_resource type="Script" path="res://objects/buildings/building.gd" id="1_liauu"]
 [ext_resource type="Material" uid="uid://dihmdusxmvmaq" path="res://objects/buildings/mat_building.tres" id="2_fows4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4l14o"]
@@ -41,8 +41,7 @@ radius = 10.8078
 
 [node name="HeadQuarters" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0306816, -0.0497894, 0.0051384)
-script = ExtResource("1_d8xvy")
-health = 500
+script = ExtResource("1_liauu")
 
 [node name="Headquarters" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
