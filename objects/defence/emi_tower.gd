@@ -5,6 +5,7 @@ const ROTATION_UP_LIMIT := deg_to_rad(89.0)
 const ROTATION_DN_LIMIT := deg_to_rad(0.0)
 
 @export_range(1, 1000) var strike_radius := 300
+@export_range(1, 100) var shoots := 5
 
 var aliens: Node
 
@@ -23,6 +24,8 @@ func _ready() -> void:
 
 func do_shooting() -> void:
 	if not Input.is_action_just_pressed("fire"): return
+	if shoots < 1: return
+	shoots -= 1
 	super.do_shooting()
 
 
