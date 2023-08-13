@@ -94,8 +94,12 @@ func fire():
 	var bullet: LaserRay = bullet_scene.instantiate()
 	bullets.add_child(bullet)
 	var shoot_point := get_shoot_point()
-	bullet.global_transform = shoot_point.global_transform
-	var velocity := Vector3(0, bullet_speed, 0)
+	#bullet.global_transform = shoot_point.global_transform
+	#bullet.look_at_from_position(shoot_point.global_position, _attack_target)
+	bullet.global_position = shoot_point.global_position
+	bullet.basis.looking_at(_attack_target.global_position, Vector3(0, 1, 0))
+	#var velocity := Vector3(0, bullet_speed, 0)
+	var velocity := (_attack_target as Node3D).global_position - bullet.global_position
 	bullet.setup(velocity, bullet_damage, bullet_material, false)
 
 
