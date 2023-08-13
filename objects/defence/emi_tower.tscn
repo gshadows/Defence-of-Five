@@ -42,7 +42,6 @@ radius = 1.3
 [node name="EMI Tower" type="StaticBody3D"]
 script = ExtResource("2_scok2")
 type = 1
-health = 100.0
 fire_delay = 30.0
 bullet_damage = 1000.0
 

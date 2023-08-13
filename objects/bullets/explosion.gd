@@ -4,7 +4,7 @@ var _explosive: Node3D
 var _callback: Callable
 
 
-func setup(parent: Node3D, explosive: Node3D, callback: Callable):
+func setup(parent: Node, explosive: Node3D, callback: Callable):
 	_explosive = explosive
 	_callback = callback
 	name = explosive.name + "Exposion"

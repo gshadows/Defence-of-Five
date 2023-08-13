@@ -63,23 +63,24 @@ func _show_markers():
 func _create_objects(setup: Array[MissionPlanner.W]):
 	var markers := grid.get_children()
 	for i in 9:
-		_create_object(markers[9 + i], setup[9 + i])
-		_create_object(markers[8 - i], setup[8 - i])
+		_create_object(markers[9 + i], setup[9 + i], i)
+		_create_object(markers[8 - i], setup[8 - i], i)
 
-func _create_object(marker: Node3D, type: MissionPlanner.W):
+func _create_object(marker: Node3D, type: MissionPlanner.W, index: int):
 	match type:
 		MissionPlanner.W.NONE:
-			_add_building(marker)
+			_add_building(marker, index)
 		MissionPlanner.W.TURR1:
-			_add_defence(marker, TURRET1_SCENE)
+			_add_defence(marker, TURRET1_SCENE, index)
 		MissionPlanner.W.EMI:
-			_add_defence(marker, EMI_GEN_SCENE)
+			_add_defence(marker, EMI_GEN_SCENE, index)
 
 
-func _add_defence(marker: Node3D, scene: PackedScene):
+func _add_defence(marker: Node3D, scene: PackedScene, index: int):
 	var weapon: Defence = scene.instantiate()
 	weapon.global_transform = marker.global_transform
 	weapon.bullets = bullets
+	weapon.name = weapon.name + str(" ", index)
 	weapon.dead.connect(_defence_dead)
 	defence.add_child(weapon)
 
@@ -104,14 +105,13 @@ func _defence_dead(dead_node: Defence):
 			next.post_mortem_show()
 
 
-func _add_building(marker: Node3D) -> void:
+func _add_building(marker: Node3D, index: int) -> void:
 	var scene := HEADQUARTER_SCENE if not _have_hq else BUILDING_SCENES[randi() % BUILDING_SCENES.size()]
 	var building: Building = scene.instantiate()
-	building.global_transform = marker.global_transform
-	building.bullets = bullets
-	building.rotate_y((randi() % 4) * PI/2)
-	if _have_hq: building.dead.connect(func(): Game.loose()) # Loose if HQ destroyed.
 	buildings.add_child(building)
+	building.name = building.name + str(" ", index)
+	building.setup(bullets, marker.global_transform)
+	if not _have_hq: building.dead.connect(_loose) # Loose if HQ destroyed.
 	_have_hq = true
 
 
@@ -122,8 +122,7 @@ func _unhandled_input(event: InputEvent):
 			var key: int = key_event.keycode
 			if key == KEY_ESCAPE:
 				get_viewport().set_input_as_handled()
-				queue_free()
-				Game.quitgame()
+				_end_game()
 				return
 			if (key >= KEY_1) and (key <= KEY_5):
 				get_viewport().set_input_as_handled()
@@ -135,3 +134,12 @@ func _unhandled_input(event: InputEvent):
 						_current = node
 						_current.activate()
 				return
+
+
+func _loose():
+	Game.loose()
+	_end_game()
+
+func _end_game():
+	queue_free()
+	Game.quitgame()

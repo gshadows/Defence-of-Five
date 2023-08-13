@@ -42,11 +42,11 @@ shadow_mesh = SubResource("ArrayMesh_ifpwt")
 height = 3.46264
 radius = 1.825
 
-[node name="TurretSingle" type="StaticBody3D"]
+[node name="Turret Single" type="StaticBody3D"]
 script = ExtResource("2_cj62v")
 fire_delay = 500.0
 bullet_scene = ExtResource("2_6cv2r")
-bullet_speed = 0.0
+bullet_speed = 30.0
 bullet_material = ExtResource("3_6bb8y")
 
 [node name="TurretBase" type="MeshInstance3D" parent="."]

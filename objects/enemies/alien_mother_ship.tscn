@@ -51,6 +51,7 @@ speed = 1.0
 health = 200.0
 fire_delay = 5.0
 bullet_damage = 50.0
+bullet_speed = 20.0
 
 [node name="AlienMotherShip" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_tysno")

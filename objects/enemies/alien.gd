@@ -25,13 +25,16 @@ func setup(post_mortem_cam: Camera3D):
 	_post_mortem_cam = post_mortem_cam
 
 
-func on_damage(damage: float, by_player: bool) -> void:
+func on_damage(damage: int, by_player: bool) -> void:
+	if health <= 0: return
 	health -= damage
-	if health < 0:
+	print(name, " damaged: hp = ", health)
+	if health <= 0:
 		_on_destroyed(by_player)
 		_explode()
 
 func _on_destroyed(by_player: bool) -> void:
+	print(name, " DESTROYED")
 	Game.enemy_down(type, by_player)
 
 func _explode() -> void:

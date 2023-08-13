@@ -125,13 +125,16 @@ func _unhandled_input(event: InputEvent):
 		get_viewport().set_input_as_handled()
 
 
-func on_damage(damage: float, by_player: bool) -> void:
+func on_damage(damage: int, by_player: bool) -> void:
+	if health <= 0: return
 	health -= damage
-	if health < 0:
+	print(name, " damaged: hp = ", health)
+	if health <= 0:
 		_on_destroyed(by_player)
 		_explode()
 
 func _on_destroyed(by_player: bool) -> void:
+	print(name, " DESTROYED")
 	Game.defence_down(type, by_player)
 
 func _explode() -> void:
@@ -151,5 +154,5 @@ func _do_shooting() -> void:
 	bullets.add_child(bullet)
 	var shoot_point := get_shoot_point()
 	bullet.global_transform = shoot_point.global_transform
-	var velocity := to_local(shoot_point.transform.basis.y) * bullet_speed
+	var velocity := Vector3(0, bullet_speed, 0)
 	bullet.setup(velocity, bullet_damage, bullet_material, true)

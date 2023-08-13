@@ -46,6 +46,7 @@ radius = 2.49268
 
 [node name="AlienFighter" type="CharacterBody3D"]
 script = ExtResource("1_q6l5d")
+bullet_speed = 20.0
 
 [node name="AlienFighter" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_ts3if")

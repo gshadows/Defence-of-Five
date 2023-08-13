@@ -33,5 +33,6 @@ func _process(delta: float) -> void:
 
 func _do_damage():
 	var collider := get_collider()
+	print("HIT: ", collider.name)
 	if (collider is Building) or (collider is Defence) or (collider is Alien):
 		collider.on_damage(_damage, _by_player)
