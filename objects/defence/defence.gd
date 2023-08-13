@@ -59,6 +59,7 @@ func prepare(cam: Camera3D, rot_lr: Node3D, rot_ud: Node3D, rot_up_lim: float, r
 
 # Called to switch & fly from active camera to current one.
 func activate(slow: float = false):
+	if _active or _cam_fly: return
 	if not _camera:
 		push_error("Defence node: camera is null: ", name, " - ", get_class())
 		return
