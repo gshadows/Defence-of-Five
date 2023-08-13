@@ -56,3 +56,6 @@ func building_down(_by_player: bool):
 
 func loose():
 	get_tree().create_timer(1).timeout.connect(quitgame)
+
+func win():
+	get_tree().create_timer(2).timeout.connect(quitgame)

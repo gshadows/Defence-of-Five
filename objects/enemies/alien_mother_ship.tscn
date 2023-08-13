@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cu1bhy8x1lq3x"]
+[gd_scene load_steps=11 format=3 uid="uid://cu1bhy8x1lq3x"]
 
 [ext_resource type="Script" path="res://objects/enemies/alien_mother_ship.gd" id="1_4mn51"]
+[ext_resource type="PackedScene" uid="uid://dvwfe3m0454fp" path="res://objects/bullets/laser_ray.tscn" id="2_kqpt1"]
 [ext_resource type="Material" uid="uid://bmdhdihs267ms" path="res://objects/enemies/mat_alien_mother.tres" id="2_tysno"]
 [ext_resource type="PackedScene" uid="uid://cqcxy0rey41ym" path="res://ui/AlienUI.tscn" id="3_dovpm"]
+[ext_resource type="Material" uid="uid://dd8ub8fv8no3v" path="res://objects/bullets/mat_red_laser.tres" id="3_tmvio"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pkwgx"]
 
@@ -47,11 +49,10 @@ radius = 13.9625
 [node name="AlienMother" type="CharacterBody3D"]
 script = ExtResource("1_4mn51")
 type = 1
-speed = 1.0
-health = 200.0
 fire_delay = 5.0
-bullet_damage = 50.0
+bullet_scene = ExtResource("2_kqpt1")
 bullet_speed = 20.0
+bullet_material = ExtResource("3_tmvio")
 
 [node name="AlienMotherShip" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_tysno")
@@ -72,3 +73,6 @@ visible = false
 
 [node name="AlienUI" parent="PostMortemCamera" instance=ExtResource("3_dovpm")]
 visible = false
+
+[node name="ShootPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)

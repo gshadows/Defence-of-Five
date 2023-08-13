@@ -5,6 +5,8 @@ extends Node3D
 @onready var buildings := %Buildings
 @onready var aliens := %Aliens
 @onready var bullets := %Bullets
+@onready var wavegen := %AttackWaveGen
+@onready var waypoints := %WayPoints
 
 var BUILDING_SCENES : Array[PackedScene] = [
 	preload("res://objects/buildings/house_1.tscn"),
@@ -29,6 +31,7 @@ func _on_top_view_planner_quit():
 func _on_top_view_planner_start(setup):
 	_create_objects(setup)
 	_sort_defence_by_pos()
+	_generate_wave()
 	_current = defence.get_child(0) as Defence
 	_current.activate(true)
 	$MissionPlanner.queue_free()
@@ -144,3 +147,22 @@ func _loose():
 func _end_game():
 	queue_free()
 	Game.quitgame()
+
+
+func _generate_wave():
+	var path: Path3D = waypoints.get_child(0)
+	if not wavegen.generate(aliens, path):
+		Game.win()
+	for node in aliens.get_children():
+		var alien := node as Alien
+		alien.path = path
+		alien.bullets = bullets
+		alien.buildings = buildings
+		alien.defence = defence
+		alien.dead.connect(_on_alien_dead)
+
+
+func _on_alien_dead(dead: Alien):
+	var count := aliens.get_child_count()
+	if (count < 1) or (count == 1) and (aliens.get_child(0) == dead):
+		_generate_wave()

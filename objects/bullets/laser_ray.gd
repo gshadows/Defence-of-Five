@@ -35,4 +35,6 @@ func _do_damage():
 	var collider := get_collider()
 	print("HIT: ", collider.name)
 	if (collider is Building) or (collider is Defence) or (collider is Alien):
+		if (collider is Alien) and not _by_player:
+			return # Temporary cheat to prevent aliens kill themselves early before approach base :)
 		collider.on_damage(_damage, _by_player)

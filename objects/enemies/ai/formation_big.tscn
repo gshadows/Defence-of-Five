@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu630qkkem0k3"]
+
+[ext_resource type="PackedScene" uid="uid://b8wcbn8xt0ffe" path="res://objects/enemies/alien_fighter.tscn" id="1_xpel4"]
+
+[node name="formation_simple" type="Node"]
+
+[node name="AlienFighter1" parent="." instance=ExtResource("1_xpel4")]
+
+[node name="AlienFighter2" parent="." instance=ExtResource("1_xpel4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 10)
+
+[node name="AlienFighter3" parent="." instance=ExtResource("1_xpel4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 3, 20)
+
+[node name="AlienFighter4" parent="." instance=ExtResource("1_xpel4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11, 20)
+
+[node name="AlienFighter5" parent="." instance=ExtResource("1_xpel4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 3, 20)
+
+[node name="AlienFighter6" parent="." instance=ExtResource("1_xpel4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 10, 43)
+
+[node name="AlienFighter7" parent="." instance=ExtResource("1_xpel4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 14, 41)
+
+[node name="AlienFighter8" parent="." instance=ExtResource("1_xpel4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 20, 40)
+
+[node name="AlienFighter9" parent="." instance=ExtResource("1_xpel4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 20, 40)
+
+[node name="AlienFighter10" parent="." instance=ExtResource("1_xpel4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 14, 41)
+
+[node name="AlienFighter11" parent="." instance=ExtResource("1_xpel4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 10, 43)

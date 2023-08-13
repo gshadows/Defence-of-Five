@@ -4,8 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://dyf75pk8uh8b7" path="res://objects/landscape/landscape.tscn" id="1_ke4h4"]
 [ext_resource type="Environment" uid="uid://n4nlchsj7tv7" path="res://config/enviroment_day.tres" id="1_x6fik"]
 [ext_resource type="PackedScene" uid="uid://dt08fx6a1pu5a" path="res://objects/mission_planner/mission_planner.tscn" id="3_xldbd"]
-[ext_resource type="PackedScene" uid="uid://b8wcbn8xt0ffe" path="res://objects/enemies/alien_fighter.tscn" id="5_nf3fu"]
-[ext_resource type="PackedScene" uid="uid://cu1bhy8x1lq3x" path="res://objects/enemies/alien_mother_ship.tscn" id="6_2wa2l"]
+[ext_resource type="PackedScene" uid="uid://dfdlxj8shkus0" path="res://objects/enemies/ai/attack_wave_gen.tscn" id="5_262lj"]
+
+[sub_resource type="Curve3D" id="Curve3D_mlrfw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 277.989, 161.74, 369.016, 0, 0, 0, 0, 0, 0, 155.605, 118.036, 220.69, 0, 0, 0, 0, 0, 0, -16.5291, 86.0706, 216.398, 0, 0, 0, 0, 0, 0, -45.4958, 61.6689, 146.127, 0, 0, 0, 0, 0, 0, 11.218, 51.0324, 85.7492, 0, 0, 0, 0, 0, 0, 38.452, 35.874, 42.837, 0, 0, 0, 0, 0, 0, 49.737, 35.068, -51.6434, 0, 0, 0, 0, 0, 0, -47.2216, 20.8274, -36.2474, 0, 0, 0, 0, 0, 0, -79.757, 15.6, -3.712, 0, 0, 0, 0, 0, 0, -35.334, 32.627, 64.487, 0, 0, 0, 0, 0, 0, 11.061, 46.95, 46.339, 0, 0, 0, 0, 0, 0, 42.759, 26.724, -14.955, 0, 0, 0, 0, 0, 0, 123.165, 79.3204, -20.3027, 0, 0, 0, 0, 0, 0, 185.831, 100.062, 75.511),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 14
 
 [node name="Map01" type="Node3D"]
 process_mode = 1
@@ -116,14 +122,17 @@ unique_name_in_owner = true
 [node name="Aliens" type="Node" parent="."]
 unique_name_in_owner = true
 
-[node name="AlienFighter" parent="Aliens" instance=ExtResource("5_nf3fu")]
-transform = Transform3D(0.968994, -0.247084, 0, 0.247084, 0.968994, 0, 0, 0, 1, 31.4408, 67.8438, -48.1129)
-
-[node name="AlienMother" parent="Aliens" instance=ExtResource("6_2wa2l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.7582, 86.2885, 0)
-
 [node name="Bullets" type="Node" parent="."]
 unique_name_in_owner = true
+
+[node name="AttackWaveGen" parent="." instance=ExtResource("5_262lj")]
+unique_name_in_owner = true
+
+[node name="WayPoints" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Path1" type="Path3D" parent="WayPoints"]
+curve = SubResource("Curve3D_mlrfw")
 
 [connection signal="quit" from="MissionPlanner" to="." method="_on_top_view_planner_quit"]
 [connection signal="start" from="MissionPlanner" to="." method="_on_top_view_planner_start"]
