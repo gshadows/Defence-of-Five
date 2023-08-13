@@ -4,6 +4,7 @@ extends Node3D
 @onready var defence := %Defence
 @onready var buildings := %Buildings
 @onready var aliens := %Aliens
+@onready var bullets := %Bullets
 
 var BUILDING_SCENES : Array[PackedScene] = [
 	preload("res://objects/buildings/house_1.tscn"),
@@ -78,6 +79,7 @@ func _create_object(marker: Node3D, type: MissionPlanner.W):
 func _add_defence(marker: Node3D, scene: PackedScene):
 	var weapon := scene.instantiate()
 	weapon.global_transform = marker.global_transform
+	weapon.bullets = bullets
 	defence.add_child(weapon)
 
 

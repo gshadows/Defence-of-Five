@@ -1,5 +1,16 @@
 class_name Defence
-extends Node3D
+extends StaticBody3D
+
+@export var health: float
+@export var damage: float
+@export var fire_delay: float
+@export var bullet_scene: PackedScene
+@export var bullet_speed: float
+@export var bullet_material: BaseMaterial3D
+
+var bullets: Node
+
+enum Type { TURRET_1, EMI_TOWER }
 
 const FLY_TIME_FAST := 0.5
 const FLY_TIME_SLOW := 3.0
@@ -18,6 +29,8 @@ var _fly_pos: float		# Camera fly position: 0..1, where 0 = start, 1 - final
 var _fly_time: float	# Current overall fly time (speed), seconds.
 var _cam_fly := false	# True when flying view to current camera.
 var _active := false	# Defence object is active. Used by derived scripts to enable input etc.
+
+var _next_fire: float
 
 @onready var mouse_sensitivity := Settings.controls.mouse_sensitivity
 @onready var mouse_invert_y := Settings.controls.mouse_invert_y
@@ -60,10 +73,10 @@ func activate(slow: float = false):
 
 
 func deactivate():
-	_cam_fly = false
 	_active = false
-	if _fly_time != FLY_TIME_SLOW:
+	if not _cam_fly:
 		_final_transform = _camera.global_transform
+	_cam_fly = false
 	_on_deactivated()
 
 
@@ -92,7 +105,8 @@ func switch_processing(enable: bool):
 
 
 func _unhandled_input(event: InputEvent):
-	if _active and (event is InputEventMouseMotion):
+	if not _active: return
+	if event is InputEventMouseMotion:
 		# Mouse look: left-right
 		_rot_lr.rotate_y(-event.relative.x * mouse_sensitivity.x)
 		# Mouse look: up-down
@@ -101,3 +115,33 @@ func _unhandled_input(event: InputEvent):
 		_rot_ud.rotate_x(-event.relative.y * cy)
 		_rot_ud.rotation.x = clamp(_rot_ud.rotation.x, _rot_down_lim, _rot_up_lim)
 		get_viewport().set_input_as_handled()
+	#if (event is InputEventAction) and (event.action == &"fire"):
+	if (event is InputEventMouseButton) and (event.button_index == MOUSE_BUTTON_LEFT) and event.pressed:
+		var time = Time.get_ticks_msec()
+		if time > _next_fire:
+			get_viewport().set_input_as_handled()
+			_next_fire = time + fire_delay
+			fire()
+
+
+func on_damage(damage: float, by_player: bool) -> void:
+	health -= damage
+	if health < 0:
+		_on_destroyed(by_player)
+		_explode()
+
+func _on_destroyed(by_player: bool) -> void:
+	pass
+
+func _explode() -> void:
+	queue_free()
+
+func get_shoot_tranform() -> Transform3D: return _camera.global_transform # To be overridden.
+
+func fire() -> void:
+	var bullet: LaserRay = bullet_scene.instantiate()
+	var shoot_point := get_shoot_tranform()
+	bullet.global_position = shoot_point.origin
+	var velocity := shoot_point.basis.y * bullet_speed
+	bullet.setup(velocity, damage, bullet_material, true)
+	bullets.add_child(bullet)

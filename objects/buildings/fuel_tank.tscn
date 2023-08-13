@@ -41,6 +41,7 @@ radius = 2.51147
 
 [node name="FuelTank" type="StaticBody3D"]
 script = ExtResource("1_254i7")
+health = 50
 
 [node name="FuelTank" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_hdgc2")

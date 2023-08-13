@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnqcsnrv4k6fe"]
+[gd_scene load_steps=7 format=3 uid="uid://dnqcsnrv4k6fe"]
 
 [ext_resource type="Script" path="res://maps/map-01.gd" id="1_jatko"]
 [ext_resource type="PackedScene" uid="uid://dyf75pk8uh8b7" path="res://objects/landscape/landscape.tscn" id="1_ke4h4"]
 [ext_resource type="Environment" uid="uid://n4nlchsj7tv7" path="res://config/enviroment_day.tres" id="1_x6fik"]
 [ext_resource type="PackedScene" uid="uid://dt08fx6a1pu5a" path="res://objects/mission_planner/mission_planner.tscn" id="3_xldbd"]
+[ext_resource type="PackedScene" uid="uid://b8wcbn8xt0ffe" path="res://objects/enemies/alien_fighter.tscn" id="5_nf3fu"]
+[ext_resource type="PackedScene" uid="uid://cu1bhy8x1lq3x" path="res://objects/enemies/alien_mother_ship.tscn" id="6_2wa2l"]
 
 [node name="Map01" type="Node3D"]
 process_mode = 1
@@ -112,6 +114,15 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="Aliens" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="AlienFighter" parent="Aliens" instance=ExtResource("5_nf3fu")]
+transform = Transform3D(0.968994, -0.247084, 0, 0.247084, 0.968994, 0, 0, 0, 1, 31.4408, 67.8438, -48.1129)
+
+[node name="AlienMother" parent="Aliens" instance=ExtResource("6_2wa2l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.7582, 86.2885, 0)
+
+[node name="Bullets" type="Node" parent="."]
 unique_name_in_owner = true
 
 [connection signal="quit" from="MissionPlanner" to="." method="_on_top_view_planner_quit"]

@@ -1,9 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://b78pdde4ee4tp"]
+[gd_scene load_steps=4 format=3 uid="uid://b78pdde4ee4tp"]
 
 [ext_resource type="PackedScene" uid="uid://ddixpo42433pn" path="res://objects/enemies/alien_fighter.glb" id="1_rap5y"]
 [ext_resource type="Material" uid="uid://h8igx7bb7uf0" path="res://objects/enemies/mat_alien_fighter.tres" id="2_xeh4j"]
 
+[sub_resource type="GDScript" id="GDScript_lbr71"]
+script/source = "extends Node3D
+
+@onready var model := $AlienFighter
+
+
+func _process(delta):
+	model.rotate_y(-PI / 50 * delta)
+"
+
 [node name="alien_fighter" instance=ExtResource("1_rap5y")]
+process_mode = 3
+script = SubResource("GDScript_lbr71")
 
 [node name="AlienFighter" parent="." index="0"]
 material_override = ExtResource("2_xeh4j")

@@ -17,3 +17,7 @@ func _on_activated():
 
 func _on_deactivated():
 	super._on_deactivated()
+
+
+func fire() -> void:
+	pass

@@ -1,6 +1,10 @@
+class_name LaserRay
 extends RayCast3D
 
+const MAX_LIFE_TIME := 10
+
 @onready var _mesh := $BeamMesh
+var _material = null
 var _velocity: Vector3
 var _damage: float
 var _by_player: bool # true = player's shoot, false = alien's shoot
@@ -9,8 +13,13 @@ var _by_player: bool # true = player's shoot, false = alien's shoot
 func setup(velocity: Vector3, damage: float, material: BaseMaterial3D, by_player: bool) -> void:
 	_velocity = velocity
 	_damage = damage
-	_mesh.material_override = material
+	_material = material
+	if _mesh: _mesh.material_override = material
 	_by_player = by_player
+
+func _ready():
+	if _material: _mesh.material_override = _material
+	get_tree().create_timer(MAX_LIFE_TIME).timeout.connect(queue_free)
 
 
 func _process(delta: float) -> void:

@@ -1,9 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://3txprf3wjjs5"]
+[gd_scene load_steps=4 format=3 uid="uid://3txprf3wjjs5"]
 
 [ext_resource type="PackedScene" uid="uid://fn13b5b3yw2e" path="res://objects/enemies/alien_mother_ship.glb" id="1_v0gjy"]
 [ext_resource type="Material" uid="uid://bmdhdihs267ms" path="res://objects/enemies/mat_alien_mother.tres" id="2_lpms1"]
 
+[sub_resource type="GDScript" id="GDScript_i07ja"]
+script/source = "extends Node3D
+
+
+@onready var model := $AlienMotherShip
+
+
+func _process(delta):
+	model.rotate_y(PI / 100 * delta)
+"
+
 [node name="alien_mother_ship" instance=ExtResource("1_v0gjy")]
+process_mode = 3
+script = SubResource("GDScript_i07ja")
 
 [node name="AlienMotherShip" parent="." index="0"]
 material_override = ExtResource("2_lpms1")
